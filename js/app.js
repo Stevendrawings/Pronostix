@@ -3,20 +3,21 @@ let tab_ligue1 = [ "Angers SCO", "AJ Auxerre", "Stade Brestois 29", "Le Havre AC
 const score = Math.floor(Math.random() * 8); // Score de 0 à 8.
 
 function operationPronostic(num){ return num * 2 }
-function indexPlayer(tableau, val){ return tableau.indexOf(val); }
+function autoPlayerFoot(num){ return Math.floor(Math.random * num) }
 
 function playerFootPronostix(){
     let tab = [];
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
-    if(numberPlayer < 10){
+    if(numberPlayer <= 10){
         for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){
             console.log(tab.push(tab_ligue1[i]))
         }
         console.log(tab)
     } else {
+        alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !")
+        console.log('Le tournois est annulé : ERROR !')
         false;
     }
 }
 
 playerFootPronostix()
-
