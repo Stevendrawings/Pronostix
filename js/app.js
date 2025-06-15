@@ -12,7 +12,6 @@ function playerFootPronostix(){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){
                 tab.push(tab_ligue1[autoPlayerFoot(tab_ligue1.length)])
             }
-        console.log(tab)
         } else {
         alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !")
         console.log('Le tournois est annulé : ERROR !')
