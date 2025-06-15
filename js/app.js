@@ -3,7 +3,7 @@ let tab_ligue1 = {
         name: "Angers SCO",
         but: scoreBut(),
         logo: "https://www.footpack.fr/wp-content/uploads/2021/05/logo-angers-sco-868x1024.jpg"
-    },
+    }, 
     equipe1: {
         name: "AJ Auxerre",
         but: scoreBut(),
@@ -100,11 +100,7 @@ function playerFootPronostix(){
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
         if(numberPlayer <= 10){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){
-                for(let key in tab_ligue1){
-                    if (tab_ligue1.hasOwnProperty(key)) {
-                        console.log(tab_ligue1[key]);
-                    }
-                }
+                console.log(Object.values(tab_ligue1))
             }  
         } else {
                 alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !")
@@ -115,4 +111,5 @@ function playerFootPronostix(){
         myImage.src = tab_ligue1.equipe0.logo;
         document.body.appendChild(myImage);
     }
+
 playerFootPronostix()
