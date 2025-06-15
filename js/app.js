@@ -1,4 +1,4 @@
-let tab_ligue1 = {
+let liste_A_ligue1 = {
     equipe0: {
         ligue: 1,
         name: "Angers SCO", //
@@ -58,7 +58,10 @@ let tab_ligue1 = {
         name: "Paris Saint-Germain", //
         but: scoreBut(),
         logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/600px-Paris_Saint-Germain_Logo.svg.png?20231024114603"
-    },
+    }
+}
+
+let liste_B_ligue1 = {
     equipe10: {
         ligue: 1,
         name: "OGC Nice", //
@@ -136,14 +139,23 @@ function playerFootPronostix(){
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
         if(numberPlayer <= 10){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
-                var arr = Object.entries(tab_ligue1);
-                let tabs = arr[autoPlayerFoot(arr.length)];
 
-                console.log(tabs[1].name)
+                var arr0 = Object.entries(liste_A_ligue1);
+                var arr1 = Object.entries(liste_B_ligue1);
 
-                const myImage = new Image(80);
-                myImage.src = tabs[1].logo;
-                document.body.appendChild(myImage);
+                let tabs0 = arr0[autoPlayerFoot(arr0.length)];
+                let tabs1 = arr1[autoPlayerFoot(arr1.length)];
+
+                let myImage0 = new Image(80);
+                let myImage1 = new Image(80);
+                
+                      myImage0.src = tabs0[1].logo;
+                      myImage1.src = tabs1[1].logo;
+
+                document.body.appendChild(myImage0);
+                document.body.appendChild(myImage1);
+
+                console.log([tabs0, tabs1]);
 
             }  
         } else {
