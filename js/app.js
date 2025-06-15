@@ -1,98 +1,134 @@
 let tab_ligue1 = {
     equipe0: {
-        name: "Angers SCO",
+        ligue: 1,
+        name: "Angers SCO", //
         but: scoreBut(),
         logo: "https://www.footpack.fr/wp-content/uploads/2021/05/logo-angers-sco-868x1024.jpg"
     },
     equipe1: {
-        name: "AJ Auxerre",
+        ligue: 1,
+        name: "AJ Auxerre", //
         but: scoreBut(),
-        logo: "https://logodownload.org/wp-content/uploads/2023/04/aj-auxerre-logo-0.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/f/f6/Logo_AJ_Auxerre_2024.svg/langfr-800px-Logo_AJ_Auxerre_2024.svg.png"
     },
     equipe2: {
-        name: "Stade Brestois 29",
+        ligue: 1,
+        name: "Stade Brestois 29", //
         but: scoreBut(),
         logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
     },
     equipe3: {
-        name: "Olympique de Marseille",
+        ligue: 1,
+        name: "Olympique de Marseille", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/4/43/Logo_Olympique_de_Marseille.svg"
     },
     equipe4: {
-        name: "LOSC Lille",
+        ligue: 1,
+        name: "LOSC Lille", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/6/62/Logo_LOSC_Lille_2018.svg"
     },
     equipe5: {
-        name: "Olympique Lyonnais",
+        ligue: 1,
+        name: "Olympique Lyonnais", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/a/a5/Logo_Olympique_Lyonnais_-_2022.svg"
     },
     equipe6: {
-        name:  "AS Monaco FC",
+        ligue: 1,
+        name:  "AS Monaco FC", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/5/58/Logo_AS_Monaco_FC_-_2021.svg/346px-Logo_AS_Monaco_FC_-_2021.svg.png?20210903233857"
     },
     equipe7: {
-        name: "Montpellier Hérault SC",
+        ligue: 1,
+        name: "Montpellier Hérault SC", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Logo_-_Montpellier_H%C3%A9rault_Sport_Club_%28MHSC%29.png"
     },
     equipe8: {
-        name: "FC Nantes",
+        ligue: 1,
+        name: "FC Nantes", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Logo_FC_Nantes_%28avec_fond%29_-_2019.svg/364px-Logo_FC_Nantes_%28avec_fond%29_-_2019.svg.png"
     },
     equipe9: {
-        name: "Paris Saint-Germain",
+        ligue: 1,
+        name: "Paris Saint-Germain", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/600px-Paris_Saint-Germain_Logo.svg.png?20231024114603"
     },
     equipe10: {
-    name: "OGC Nice",
+        ligue: 1,
+        name: "OGC Nice", //
         but: scoreBut(),
         logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
     },
     equipe11: {
-        name: "Stade de Reims",
+        ligue: 1,
+        name: "Stade de Reims", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/a/ad/Logo_Stade_de_Reims_2020_%28Alternatif%29.svg"
     },
     equipe12: {
-        name: "Stade Rennais FC",
+        ligue: 1,
+        name: "Stade Rennais FC", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/e/e9/Logo_Stade_Rennais_FC.svg"
     },
     equipe13: {
-        name: "AS Saint-Étienne",
+        ligue: 1,
+        name: "AS Saint-Étienne", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/3/3e/AS_Saint-Etienne-logo_2022.svg/481px-AS_Saint-Etienne-logo_2022.svg.png?20220627070721"
     },
     equipe14: {
-        name:  "Toulouse FC",
+        ligue: 1,
+        name:  "Toulouse FC", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/8/8b/Logo_Toulouse_FC_2018.svg/960px-Logo_Toulouse_FC_2018.svg.png?20210815152536"
     },
     equipe15: {
-        name: "RC Strasbourg Alsace",
+        ligue: 1,
+        name: "RC Strasbourg Alsace", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/7/70/Racing_Club_de_Strasbourg_Alsace_%28RC_Strasbourg_-_RCS_-_RCSA%29_logo_officiel.svg/600px-Racing_Club_de_Strasbourg_Alsace_%28RC_Strasbourg_-_RCS_-_RCSA%29_logo_officiel.svg.png?20180528170410"
     },
     equipe16: {
-        name: "Clermont Foot 63",
+        ligue: 1,
+        name: "Clermont Foot 63", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/2/22/Logo_Clermont_Foot_63_2021.svg/506px-Logo_Clermont_Foot_63_2021.svg.png?20240704071049"
     },
     equipe17: {
-        name: "SM Caen",
+        ligue: 1,
+        name: "SM Caen", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/7/79/Logo_SM_Caen_2016.svg/500px-Logo_SM_Caen_2016.svg.png?20200813190358"
+    },
+    equipe18: {
+        ligue: 1,
+        name: "RC lens", //
+        but: scoreBut(),
+        logo: "https://upload.wikimedia.org/wikipedia/fr/c/c5/Logo_RC_Lens.svg"
+    },
+    equipe19: {
+        ligue: 1,
+        name: "Havre AC", //
+        but: scoreBut(),
+        logo: "https://upload.wikimedia.org/wikipedia/fr/e/e6/Logo_Havre_AC_2012.svg"
+    },
+    equipe20: {
+        ligue: 2,
+        name: "AC Ajaccio", //
+        but: scoreBut(),
+        logo: "https://upload.wikimedia.org/wikipedia/fr/5/53/Logo_AC_Ajaccio_2015.svg"
     },
 }
 
 function cointMisor(number){ return number }
-function scoreBut(){ return Math.floor(Math.random() * 5); }
+function scoreBut(){ return Math.floor(Math.random() * 6); }
 function operationPronostic(num){ return num * 2 }
 function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 
@@ -102,15 +138,18 @@ function playerFootPronostix(){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
                 var arr = Object.entries(tab_ligue1);
                 let tabs = arr[autoPlayerFoot(arr.length)];
+
                 console.log(tabs[1].name)
+
+                const myImage = new Image(80);
+                myImage.src = tabs[1].logo;
+                document.body.appendChild(myImage);
+
             }  
         } else {
                 alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !")
                 console.log('Le tournois est annulé : ERROR !')
                 false;  
         }
-        const myImage = new Image(100);
-        myImage.src = tab_ligue1.equipe0.logo;
-        document.body.appendChild(myImage);
     }
 playerFootPronostix()
