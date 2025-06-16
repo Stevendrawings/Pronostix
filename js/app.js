@@ -66,7 +66,7 @@ let liste_B_ligue1 = {
         ligue: 1,
         name: "OGC Nice", //
         but: scoreBut(),
-        logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Logo_SB29_2010.svg/1200px-Logo_SB29_2010.svg.png"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/b/b1/Logo_OGC_Nice_2013.svg"
     },
     equipe11: {
         ligue: 1,
@@ -148,14 +148,20 @@ function playerFootPronostix(){
 
                 let myImage0 = new Image(80);
                 let myImage1 = new Image(80);
-                
+
                       myImage0.src = tabs0[1].logo;
                       myImage1.src = tabs1[1].logo;
 
-                document.body.appendChild(myImage0);
-                document.body.appendChild(myImage1);
+                const newDiv = document.createElement("div")
 
-                console.log([tabs0, tabs1]);
+                newDiv.appendChild(myImage0).classList.add("logo-pronostix");
+                newDiv.appendChild(myImage1).classList.add("logo-pronostix");
+
+                const curentDiv = document.getElementById("div");
+
+                document.body.insertBefore(newDiv, curentDiv).classList.add("content-pronostix")
+
+                console.log(tabs0.concat(tabs1));
 
             }  
         } else {
