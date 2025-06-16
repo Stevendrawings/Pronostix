@@ -130,13 +130,17 @@ let liste_B_ligue1 = {
     },
 }
 
-function cointMisor(number){ return number }
-function scoreBut(){ return Math.floor(Math.random() * 6); }
-function operationPronostic(num){ return num * 2 }
+function cointMisor(number){  return number  }
+
+function scoreBut(){  return Math.floor(Math.random() * 6);  }
+
+function operationPronostic(num){ return num * 2  }
+
 function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 
 function playerFootPronostix(){
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
+
         if(numberPlayer <= 10){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
 
@@ -149,17 +153,22 @@ function playerFootPronostix(){
                 let myImage0 = new Image(80);
                 let myImage1 = new Image(80);
 
-                      myImage0.src = tabs0[1].logo;
-                      myImage1.src = tabs1[1].logo;
+                    myImage0.src = tabs0[1].logo;
+                    myImage1.src = tabs1[1].logo;
 
-                const newDiv = document.createElement("div")
+                const curentContentDiv = document.querySelector(".content-pronostix");
+
+                const newDiv = document.createElement("div");
 
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
 
                 const curentDiv = document.getElementById("div");
 
-                document.body.insertBefore(newDiv, curentDiv).classList.add("content-pronostix")
+                document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
+
+                console.log(curentContentDiv)
+                curentContentDiv.appendChild(newDiv);
 
                 console.log(tabs0.concat(tabs1));
 
@@ -169,5 +178,6 @@ function playerFootPronostix(){
                 console.log('Le tournois est annulé : ERROR !')
                 false;  
         }
+
     }
 playerFootPronostix()
