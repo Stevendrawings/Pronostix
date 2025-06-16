@@ -167,7 +167,6 @@ function playerFootPronostix(){
 
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
 
-                console.log(curentContentDiv)
                 curentContentDiv.appendChild(newDiv);
 
                 console.log(tabs0.concat(tabs1));
