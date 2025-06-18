@@ -146,7 +146,7 @@ function playerFootPronostix(){
 
                 var arr0 = Object.entries(liste_A_ligue1);
                 var arr1 = Object.entries(liste_B_ligue1);
-
+                
                 let tabs0 = arr0[autoPlayerFoot(arr0.length)];
                 let tabs1 = arr1[autoPlayerFoot(arr1.length)];
 
@@ -157,7 +157,6 @@ function playerFootPronostix(){
                     myImage1.src = tabs1[1].logo;
 
                 const curentContentDiv = document.querySelector(".content-pronostix");
-
                 const newDiv = document.createElement("div");
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
@@ -165,18 +164,25 @@ function playerFootPronostix(){
                 const curentDiv = document.getElementById("div");
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
                 curentContentDiv.appendChild(newDiv);
-                tabs0.concat(tabs1);
+                tabs0.concat(tabs1);  
 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
+                const tabs = [cell_pronostix[i].childNodes[0], cell_pronostix[i].childNodes[1]]
 
-                console.log([cell_pronostix[i].childNodes[0], cell_pronostix[i].childNodes[1]])
-               
+                tabs.forEach(function(){
+                    const selectDIv = document.querySelectorAll(".img-pronostix");
+                    const listDiv = document.createElement("div");
+                    const curentListDiv = document.getElementById("div");
+                    document.body.insertBefore(listDiv, curentListDiv).classList.add("img-pronostix");
+                        for(let i = 0; i < selectDIv.length; i = i + 1){
+                        console.log(selectDIv[i])
+                    }
+                });
             }  
         } else {
                 alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !")
                 console.log('Le tournois est annulé : ERROR !')
                 false;  
         }
-
     }
 playerFootPronostix()
