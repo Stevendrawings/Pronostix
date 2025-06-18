@@ -67,7 +67,8 @@ table {
     align-items: center;
     margin: 10px;
     width: 100%;
-    max-width: 650px }
+    max-width: 650px;
+    height: 220px }
 
 .logo-pronostix {
     width: 100%;
