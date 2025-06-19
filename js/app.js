@@ -3,7 +3,7 @@ let liste_A_ligue1 = {
         ligue: 1,
         name: "Angers SCO", //
         but: scoreBut(),
-        logo: "https://www.footpack.fr/wp-content/uploads/2021/05/logo-angers-sco-868x1024.jpg"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/d/d3/Logo_Angers_SCO_-_2021.svg"
     },
     equipe1: {
         ligue: 1,
@@ -141,15 +141,17 @@ function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 function playerFootPronostix(){
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
 
+    let counter = 0;
+
         if(numberPlayer <= 10){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
 
-                var arr0 = Object.entries(liste_A_ligue1);
-                var arr1 = Object.entries(liste_B_ligue1);
+                let arr0 = Object.entries(liste_A_ligue1);
+                let arr1 = Object.entries(liste_B_ligue1);
                 
                 let tabs0 = arr0[autoPlayerFoot(arr0.length)];
                 let tabs1 = arr1[autoPlayerFoot(arr1.length)];
-
+                
                 let myImage0 = new Image(80);
                 let myImage1 = new Image(80);
 
@@ -164,24 +166,29 @@ function playerFootPronostix(){
                 const curentDiv = document.getElementById("div");
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
                 curentContentDiv.appendChild(newDiv);
-                tabs0.concat(tabs1);  
 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
                 const tabs_0 = [cell_pronostix[i].childNodes[0]];
                 const tabs_1 = [cell_pronostix[i].childNodes[1]];
+
                 const tableau = tabs_0.concat(tabs_1);
 
                 for(let i = 0; i < tableau.length; i = i + 1){
-                    const listDiv = document.createElement('div');
+                    const listDivImg = document.createElement('div');
                     const currentListDiv = document.getElementById("div");
-                    document.body.insertBefore(listDiv, currentListDiv).classList.add("img-pronostix")
-                    listDiv.appendChild(tableau[i]);
-                    newDiv.appendChild(listDiv)
+                    document.body.insertBefore(listDivImg, currentListDiv).classList.add("img-pronostix")
+                    listDivImg.appendChild(tableau[i]);
+                    newDiv.appendChild(listDivImg);
+                    const listDivName = document.createElement('div');
+                    document.body.insertBefore(listDivName, currentListDiv).classList.add("name-player-pronostix")
+                    listDivImg.appendChild(listDivName)
+                    listDivName.innerHTML = "<p>" + tabs0[1].name + "</p>";
+                    listDivName.innerHTML = "<p>" + tabs1[1].name + "</p>";
                 }
             }  
         } else {
-                alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !")
-                console.log('Le tournois est annulé : ERROR !')
+                alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
+                console.log('Le tournois est annulé : ERROR !');
                 false;  
         }
     }
