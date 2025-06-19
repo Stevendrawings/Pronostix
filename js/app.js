@@ -167,17 +167,17 @@ function playerFootPronostix(){
                 tabs0.concat(tabs1);  
 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
-                const tabs = [cell_pronostix[i].childNodes[0], cell_pronostix[i].childNodes[1]]
+                const tabs_0 = [cell_pronostix[i].childNodes[0]];
+                const tabs_1 = [cell_pronostix[i].childNodes[1]];
+                const tableau = tabs_0.concat(tabs_1);
 
-                tabs.forEach(function(){
-                    const selectDIv = document.querySelectorAll(".img-pronostix");
-                    const listDiv = document.createElement("div");
-                    const curentListDiv = document.getElementById("div");
-                    document.body.insertBefore(listDiv, curentListDiv).classList.add("img-pronostix");
-                        for(let i = 0; i < selectDIv.length; i = i + 1){
-                        console.log(selectDIv[i])
-                    }
-                });
+                for(let i = 0; i < tableau.length; i = i + 1){
+                    const listDiv = document.createElement('div');
+                    const currentListDiv = document.getElementById("div");
+                    document.body.insertBefore(listDiv, currentListDiv).classList.add("img-pronostix")
+                    listDiv.appendChild(tableau[i]);
+                    newDiv.appendChild(listDiv)
+                }
             }  
         } else {
                 alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !")

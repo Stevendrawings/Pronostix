@@ -75,3 +75,22 @@ table {
     max-width: 70px;
     max-height: fit-content;
     padding: 20px }
+
+
+/* /////////////////////////////////////////////////////////// */
+                        /* RESPONSIVE */
+/* /////////////////////////////////////////////////////////// */
+
+@media (max-width: 15rem){
+.cell-pronostix {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #fff;
+    border-radius: 10px;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+    max-width: 650px;
+    height: auto }
+}
