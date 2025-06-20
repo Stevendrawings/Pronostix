@@ -139,6 +139,7 @@ function operationPronostic(num){ return num * 2  }
 function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 
 function playerFootPronostix(){
+    
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
 
     let counter = 0;
@@ -175,15 +176,14 @@ function playerFootPronostix(){
 
                 for(let i = 0; i < tableau.length; i = i + 1){
                     const listDivImg = document.createElement('div');
-                    const currentListDiv = document.getElementById("div");
-                    document.body.insertBefore(listDivImg, currentListDiv).classList.add("img-pronostix")
+                    document.body.insertBefore(listDivImg, curentDiv).classList.add("img-pronostix")
                     listDivImg.appendChild(tableau[i]);
                     newDiv.appendChild(listDivImg);
                     const listDivName = document.createElement('div');
-                    document.body.insertBefore(listDivName, currentListDiv).classList.add("name-player-pronostix")
+                    document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix")
                     listDivImg.appendChild(listDivName)
-                    listDivName.innerHTML = "<p>" + tabs0[1].name + "</p>";
-                    listDivName.innerHTML = "<p>" + tabs1[1].name + "</p>";
+                    const tab = [tabs0[1].name, tabs1[1].name];
+                    listDivImg.lastChild.innerHTML = "<p>" + tab[i] + "</p>"
                 }
             }  
         } else {
