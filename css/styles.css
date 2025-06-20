@@ -65,6 +65,7 @@ table {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    text-align: center;
     background-color: #fff;
     border-radius: 10px;
     align-items: center;
@@ -78,8 +79,6 @@ table {
     max-width: 70px;
     max-height: fit-content;
     padding: 20px }
-
-.name-player-pronostix { text-align: center; }
 
 /* /////////////////////////////////////////////////////////// */
                         /* RESPONSIVE */
@@ -96,5 +95,5 @@ table {
     margin: 10px;
     width: 100%;
     max-width: 650px;
-    height: auto }
+    height: auto } 
 }
