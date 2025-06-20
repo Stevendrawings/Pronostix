@@ -80,6 +80,8 @@ table {
     max-height: fit-content;
     padding: 20px }
 
+.name-player-pronostix p { font-size: 13px }
+
 /* /////////////////////////////////////////////////////////// */
                         /* RESPONSIVE */
 /* /////////////////////////////////////////////////////////// */
