@@ -143,6 +143,8 @@ function playerFootPronostix(){
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
 
     let counter = 0;
+    // couleur du compteur de card
+    // background: #bee1ff; color: #212121;
 
         if(numberPlayer <= 10){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
@@ -161,6 +163,8 @@ function playerFootPronostix(){
 
                 const curentContentDiv = document.querySelector(".content-pronostix");
                 const newDiv = document.createElement("div");
+                const middleContent = document.createElement("div");
+                
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
 
@@ -169,6 +173,7 @@ function playerFootPronostix(){
                 curentContentDiv.appendChild(newDiv);
 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
+
                 const tabs_0 = [cell_pronostix[i].childNodes[0]];
                 const tabs_1 = [cell_pronostix[i].childNodes[1]];
 
@@ -178,6 +183,8 @@ function playerFootPronostix(){
                     const listDivImg = document.createElement('div');
                     document.body.insertBefore(listDivImg, curentDiv).classList.add("img-pronostix")
                     listDivImg.appendChild(tableau[i]);
+                    document.body.insertBefore(middleContent, curentDiv).classList.add("middle-content-pronostix")
+                    newDiv.appendChild(middleContent); // Ajout de la div middle entre les divs principal des joueurs 
                     newDiv.appendChild(listDivImg);
                     const listDivName = document.createElement('div');
                     document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix")
