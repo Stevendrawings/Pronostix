@@ -131,20 +131,15 @@ let liste_B_ligue1 = {
 }
 
 function cointMisor(number){  return number  }
-
 function scoreBut(){  return Math.floor(Math.random() * 6);  }
-
 function operationPronostic(num){ return num * 2  }
-
 function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 
-function playerFootPronostix(){
+function playerFootPronostix(){ 
     
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
 
     let counter = 0;
-    // couleur du compteur de card
-    // background: #bee1ff; color: #212121;
 
         if(numberPlayer <= 10){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
@@ -163,14 +158,16 @@ function playerFootPronostix(){
 
                 const curentContentDiv = document.querySelector(".content-pronostix");
                 const newDiv = document.createElement("div");
-                const middleContent = document.createElement("div");
+                middleContent = document.createElement("div");
+                const divNewMiddle_1 = document.createElement('div');
+                const divNewMiddle_2 = document.createElement('div');
                 
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
 
-                const curentDiv = document.getElementById("div");
+                curentDiv = document.getElementById("div");
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
-                curentContentDiv.appendChild(newDiv);
+                curentContentDiv.appendChild(newDiv)
 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
 
@@ -179,24 +176,46 @@ function playerFootPronostix(){
 
                 const tableau = tabs_0.concat(tabs_1);
 
-                for(let i = 0; i < tableau.length; i = i + 1){
+                for(let j = 0; j < tableau.length; j = j + 1){
                     const listDivImg = document.createElement('div');
+                    const newScoreList = document.createElement('div');
                     document.body.insertBefore(listDivImg, curentDiv).classList.add("img-pronostix")
-                    listDivImg.appendChild(tableau[i]);
+                    listDivImg.appendChild(tableau[j]);
                     document.body.insertBefore(middleContent, curentDiv).classList.add("middle-content-pronostix")
                     newDiv.appendChild(middleContent); // Ajout de la div middle entre les divs principal des joueurs 
+                    document.body.insertBefore(divNewMiddle_1, curentDiv).classList.add("counter-card-pronostix")
+                    middleContent.appendChild(divNewMiddle_1);
+                    divNewMiddle_1.innerHTML = "<span>" + operationPronostic(numberPlayer) + " / " + (i+1) + "</span>";
+                    document.body.insertBefore(divNewMiddle_2, curentDiv).classList.add("score-pronostix")
+                    middleContent.appendChild(divNewMiddle_2);
+                    document.body.insertBefore(newScoreList, curentDiv).classList.add("but-pronostix")
+                    divNewMiddle_2.appendChild(newScoreList);
                     newDiv.appendChild(listDivImg);
                     const listDivName = document.createElement('div');
                     document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix")
                     listDivImg.appendChild(listDivName)
-                    const tab = [tabs0[1].name, tabs1[1].name];
-                    listDivImg.lastChild.innerHTML = "<p>" + tab[i] + "</p>"
+                    const tab_name = [tabs0[1].name, tabs1[1].name];
+                    listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
+                    const tab_but = [tabs0[1].but, tabs1[1].but];
+                    newScoreList.innerHTML = "<p>" + tab_but[j] + "</p>";
+                        }
+                    const divNewMiddle_3 = document.createElement('div');
+                    const btn = document.createElement("BUTTON");
+                    const t = document.createTextNode("Validation"); 
+                    document.body.insertBefore(divNewMiddle_3, curentDiv).classList.add("content-btn-pronostix")
+                    middleContent.appendChild(divNewMiddle_3);
+                    document.body.insertBefore(btn, curentDiv).classList.add("btn-pronostix")
+                    divNewMiddle_3.appendChild(btn); 
+                    btn.appendChild(t); 
+                    const buttonPronostix = document.querySelector('.btn-pronostix');
+                    buttonPronostix.style.display = "block";
+                    console.log(buttonPronostix)   
                 }
-            }  
-        } else {
-                alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
-                console.log('Le tournois est annulé : ERROR !');
-                false;  
-        }
-    }
-playerFootPronostix()
+                } else {
+                    alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
+                    console.log('Le tournois est annulé : ERROR !'); 
+                    false;  
+                }
+            }
+    playerFootPronostix()
+
