@@ -59,7 +59,8 @@ table {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    flex-direction: column; }
+    flex-direction: column;  
+    transform: translateY(200px) }
 
 .cell-pronostix {
     display: flex;
@@ -74,11 +75,67 @@ table {
     max-width: 650px;
     height: 220px }
 
+.middle-content-pronostix {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100% }
+
+.counter-card-pronostix {
+    background-color: #bee1ff;
+    border-radius: 20px;
+    color: #212121;
+    width: 50px;
+    padding: 5px }
+
+.score-pronostix {
+    display: flex;
+    width: 110px;
+    font-size: 20px;
+    justify-content: space-around; }
+
 .logo-pronostix {
     width: 100%;
     max-width: 70px;
     max-height: fit-content;
     padding: 20px }
+
+.btn-pronostix {
+    display: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+    border: 1px solid transparent;
+    cursor: pointer;
+    border-color: #b9b9b9;
+    transition: all var(--transition-speed-base) ease-in-out;
+    background: linear-gradient(#ffffff, #efefef) }
+
+.btn-pronostix:active { 
+    transform: translateY(2px);
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #a9a9a9 !important;
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(255, 255, 255, 0) }
+
+/* Mauvaise réponse
+    display: block;
+    float: right;
+    background: #daffd6;
+    padding: 5px 20px;
+    border-radius: 50px;
+    colo: aliceblue;
+    color: #3b9a4e; */
+
+/* Bonne réponse 
+    display: block;
+    float: right;
+    background: #ffd6d6;
+    padding: 5px 20px;
+    border-radius: 50px;
+    colo: aliceblue;
+    color: #9a3b5b; */
 
 .name-player-pronostix p { font-size: 13px }
 
