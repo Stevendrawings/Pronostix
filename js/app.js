@@ -210,7 +210,7 @@ function playerFootPronostix(){
                     const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                     buttonPronostix[i].style.display = "block";
                         buttonPronostix[i].addEventListener('click', function(){
-                            console.log(counter+=0);
+                            console.log(counter+=20);
                             contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
                         })}} else {
                     alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
