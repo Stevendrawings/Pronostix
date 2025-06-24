@@ -131,7 +131,7 @@ let liste_B_ligue1 = {
 }
 
 function cointMisor(number){  return number  }
-function scoreBut(){  return Math.floor(Math.random() * 6);  }
+function scoreBut(){  return Math.floor(Math.random() * [3].map((x) => x * 2));  }
 function operationPronostic(num){ return num * 2  }
 function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 
@@ -190,11 +190,11 @@ function playerFootPronostix(){
                     divNewMiddle_1.innerHTML = "<span>" + operationPronostic(numberPlayer) + " / " + (i+1) + "</span>";
                     document.body.insertBefore(divNewMiddle_2, curentDiv).classList.add("score-pronostix")
                     middleContent.appendChild(divNewMiddle_2);
-                    document.body.insertBefore(newScoreList, curentDiv).classList.add("but-pronostix")
+                    document.body.insertBefore(newScoreList, curentDiv).classList.add("but-pronostix");
                     divNewMiddle_2.appendChild(newScoreList);
                     newDiv.appendChild(listDivImg);
                     const listDivName = document.createElement('div');
-                    document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix")
+                    document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix");
                     listDivImg.appendChild(listDivName)
                     const tab_name = [tabs0[1].name, tabs1[1].name];
                     listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
@@ -209,10 +209,15 @@ function playerFootPronostix(){
                     divNewMiddle_3.appendChild(btn); btn.appendChild(t); 
                     const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                     buttonPronostix[i].style.display = "block";
-                        buttonPronostix[i].addEventListener('click', function(){
-                            console.log(counter+=20);
-                            contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
-                        })}} else {
+                    buttonPronostix[i].addEventListener('click', function(){
+                        console.log(counter+=20);
+                        contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
+                        if(cell_pronostix.length >= operationPronostic(numberPlayer)){
+                           console.log("Resultat");
+                        }
+                    }
+                )}
+                } else {
                     alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
                     console.log('Le tournois est annulé : ERROR !'); 
                     false;  
