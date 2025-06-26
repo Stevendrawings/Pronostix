@@ -140,6 +140,9 @@ function playerFootPronostix(){
     let numberPlayer = Number(prompt("Choisisser les équipes compris entre 0 et 10 qui joue cet periode !"));
 
     const contentchild = document.createElement('div');
+    const atome_red = document.createElement('div');
+    const atome_blue = document.createElement('div');
+
     let counter = 0;
 
         if(numberPlayer <= 10){
@@ -169,6 +172,10 @@ function playerFootPronostix(){
                 const curentDiv = document.getElementById("div");
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
                 contentchild.classList.add("contentChild-pronostix");
+                curentContentDiv.appendChild(atome_red)
+                atome_red.classList.add("atome_red")
+                curentContentDiv.appendChild(atome_blue)
+                atome_blue.classList.add("atome_blue")
                 curentContentDiv.appendChild(contentchild)
                 contentchild.appendChild(newDiv)
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
