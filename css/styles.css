@@ -68,7 +68,7 @@ table {
     height: 255px;
     transition: all 1s ease-out;
     max-width: 660px;
-    z-index: 1; }
+    z-index: 1 }
 
 .cell-pronostix {
     display: flex;
@@ -127,6 +127,18 @@ table {
     animation: pulse 1s;
     box-shadow: 0 0 0 2em rgba(255, 255, 255, 0) }
 
+
+.shadow-atome {
+    content: "";
+    box-shadow: inset 0px 0px 10px 10px #f0f8ff;
+    width: 100%;
+    max-width: 1060px;
+    height: 255px;
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center }
+
 .content_atome {
     display: flex;
     align-items: center;
@@ -139,9 +151,7 @@ table {
 
 /* Atome blue */
 
-.atome_blue, .atome_red {
-    position: absolute;
-}
+.atome_blue, .atome_red { position: absolute }
 
 .atome_blue {
     background-color: #5dcbff;
@@ -152,7 +162,6 @@ table {
     offset-path: path("M486.89,121.85h0a67.22,67.22,0,0,0,4.73-94.94q-2.25-2.47-4.73-4.73h0A83.66,83.66,0,0,0,396.26,8L113.24,136a83.64,83.64,0,0,1-90.63-14.22h0a67.22,67.22,0,0,1-4.73-94.94c1.5-1.66,3.08-3.23,4.73-4.73h0A83.68,83.68,0,0,1,113.24,7.93L396.26,136A83.66,83.66,0,0,0,486.89,121.85Z");
     animation: moveinfinitered 3000ms linear infinite;
     box-shadow: 0 0 30px 30px #22a3ff, 0 0 50px 30px #0ef2ff, 0 0 70px 30px #35eeff }
-
 
 /* Atome red */
 
@@ -173,8 +182,6 @@ to { offset-distance: 100% }
     @keyframes moveinfiniteblue {
 to { offset-distance: -100% }
     }
-
-/* animation: 3s linear 1s infinite alternate slidein; */
 
 /* Mauvaise réponse
     display: block;
