@@ -141,6 +141,7 @@ function playerFootPronostix(){
 
     const contentchild = document.createElement('div');
     const content_atome = document.createElement('div');
+    const shadow_atome = document.createElement('div');
     const atome_red = document.createElement('div');
     const atome_blue = document.createElement('div');
 
@@ -173,6 +174,8 @@ function playerFootPronostix(){
                 const curentDiv = document.getElementById("div");
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
                 contentchild.classList.add("contentChild-pronostix");
+                curentContentDiv.appendChild(shadow_atome)
+                shadow_atome.classList.add('shadow-atome');
                 curentContentDiv.appendChild(content_atome);
                 content_atome.classList.add("content_atome")
                 content_atome.appendChild(atome_red)
