@@ -211,8 +211,7 @@ function playerFootPronostix(){
                     listDivImg.appendChild(listDivName)
                     const tab_name = [tabs0[1].name, tabs1[1].name];
                     listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
-                    const tab_but = [tabs0[1].but, tabs1[1].but];
-                    newScoreList.innerHTML = "<p>" + tab_but[j] + "</p>" }
+                    newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0'>" }
                     const divNewMiddle_3 = document.createElement('div');
                     const btn = document.createElement("BUTTON");
                     const t = document.createTextNode("Validation"); 
@@ -226,11 +225,14 @@ function playerFootPronostix(){
                         console.log(counter+=20);
                         contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
                         if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                           console.log("Resultat");
+                            console.log("Resultat");
+                            const newScoreList_1 = document.createElement('div');
+                            // const tab_but = [tabs0[1].but, tabs1[1].but];
+                            // newScoreList.innerHTML = "<p>" + tab_but[j] + "</p>" 
+                            console.log(newDiv)
                         }
-                    }
-                )}
-                } else {
+                    })
+                }} else {
                     alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
                     console.log('Le tournois est annulé : ERROR !'); 
                     false;  
