@@ -177,8 +177,8 @@ function playerFootPronostix(){
                 curentContentDiv.appendChild(shadow_atome)
                 shadow_atome.classList.add('shadow-atome');
                 curentContentDiv.appendChild(content_atome);
-                content_atome.classList.add("content_atome")
-                content_atome.appendChild(atome_red)
+                content_atome.classList.add("content_atome");
+                content_atome.appendChild(atome_red);
                 atome_red.classList.add("atome_red")
                 content_atome.appendChild(atome_blue)
                 atome_blue.classList.add("atome_blue")
@@ -190,7 +190,7 @@ function playerFootPronostix(){
                 const tabs_1 = [cell_pronostix[i].childNodes[1]];
 
                 const tableau = tabs_0.concat(tabs_1);
-
+ 
                 for(let j = 0; j < tableau.length; j = j + 1){
                     const listDivImg = document.createElement('div');
                     const newScoreList = document.createElement('div');
@@ -214,29 +214,40 @@ function playerFootPronostix(){
                     newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0'>" }
                     const divNewMiddle_3 = document.createElement('div');
                     const btn = document.createElement("BUTTON");
-                    const t = document.createTextNode("Validation"); 
+                    const t = document.createTextNode("Validation");
                     document.body.insertBefore(divNewMiddle_3, curentDiv).classList.add("content-btn-pronostix")
                     middleContent.appendChild(divNewMiddle_3);
                     document.body.insertBefore(btn, curentDiv).classList.add("btn-pronostix")
                     divNewMiddle_3.appendChild(btn); btn.appendChild(t); 
                     const buttonPronostix = document.querySelectorAll('.btn-pronostix');
-                    buttonPronostix[i].style.display = "block";
-                    buttonPronostix[i].addEventListener('click', function(){
-                        console.log(counter+=20);
-                        contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
-                        if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                            console.log("Resultat");
-                            const newScoreList_1 = document.createElement('div');
-                            // const tab_but = [tabs0[1].but, tabs1[1].but];
-                            // newScoreList.innerHTML = "<p>" + tab_but[j] + "</p>" 
-                            console.log(newDiv)
-                        }
-                    })
-                }} else {
-                    alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
-                    console.log('Le tournois est annulé : ERROR !'); 
-                    false;  
+                        buttonPronostix[i].style.display = "block";
+                        buttonPronostix[i].addEventListener('click', function(){
+                            console.log(counter+=20);
+                            contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
+                            if(cell_pronostix.length >= operationPronostic(numberPlayer)){
+                                console.log("Resultat");
+                                cell_pronostix.forEach(function(element){
+                                    const iterator = element.childNodes[1].childNodes[1].childNodes;
+                                    for(const value of iterator){
+                                        for(let k = 0; k < value.childNodes.length; k = k + 1){
+                                            value.childNodes[k].remove();
+                                        }
+                                    }
+                                })
+                            }
+                        })   
+                        const tab_but = [tabs0[1].but].concat(tabs1[1].but);
+                        Array.from(cell_pronostix[i].childNodes[1].childNodes[1].childNodes).forEach(function(element){
+                            return console.log(element.childNodes)
+                        })
+                        
+                    }
+                } else {
+                        alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
+                        console.log('Le tournois est annulé : ERROR !'); 
+                        false;  
+                    }
                 }
-            }
     playerFootPronostix()
 
+ 
