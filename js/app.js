@@ -190,7 +190,8 @@ function playerFootPronostix(){
                 const tabs_1 = [cell_pronostix[i].childNodes[1]];
 
                 const tableau = tabs_0.concat(tabs_1);
- 
+
+                
                 for(let j = 0; j < tableau.length; j = j + 1){
                     const listDivImg = document.createElement('div');
                     const newScoreList = document.createElement('div');
@@ -211,16 +212,25 @@ function playerFootPronostix(){
                     listDivImg.appendChild(listDivName)
                     const tab_name = [tabs0[1].name, tabs1[1].name];
                     listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
-                    newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0'>" }
-                    const divNewMiddle_3 = document.createElement('div');
-                    const btn = document.createElement("BUTTON");
-                    const t = document.createTextNode("Validation");
-                    document.body.insertBefore(divNewMiddle_3, curentDiv).classList.add("content-btn-pronostix")
-                    middleContent.appendChild(divNewMiddle_3);
-                    document.body.insertBefore(btn, curentDiv).classList.add("btn-pronostix")
-                    divNewMiddle_3.appendChild(btn); btn.appendChild(t); 
-                    const buttonPronostix = document.querySelectorAll('.btn-pronostix');
-                        buttonPronostix[i].style.display = "block";
+                    newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0'>";  } 
+             
+                    
+                        function result(){
+                            for(let j = 0; j < tableau.length; j = j + 1){
+                                const tab_but = [tabs0[1].but, tabs1[1].but]
+                                console.log(cell_pronostix[i].childNodes[1].childNodes[1].childNodes[j].innerHTML = "<p>" + tab_but[j] + "</p>")
+                            } 
+                        }
+                 
+                        const divNewMiddle_3 = document.createElement('div');
+                        const btn = document.createElement("BUTTON");
+                        const t = document.createTextNode("Validation");
+                        document.body.insertBefore(divNewMiddle_3, curentDiv).classList.add("content-btn-pronostix")
+                        middleContent.appendChild(divNewMiddle_3);
+                        document.body.insertBefore(btn, curentDiv).classList.add("btn-pronostix")
+                        divNewMiddle_3.appendChild(btn); btn.appendChild(t);
+                        const buttonPronostix = document.querySelectorAll('.btn-pronostix');
+                        buttonPronostix[i].style.display = "block"; 
                         buttonPronostix[i].addEventListener('click', function(){
                             console.log(counter+=20);
                             contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
@@ -230,24 +240,20 @@ function playerFootPronostix(){
                                     const iterator = element.childNodes[1].childNodes[1].childNodes;
                                     for(const value of iterator){
                                         for(let k = 0; k < value.childNodes.length; k = k + 1){
-                                            value.childNodes[k].remove();
+                                                value.childNodes[k].remove(); 
+                                            }
                                         }
-                                    }
-                                })
-                            }
-                        })   
-                        const tab_but = [tabs0[1].but].concat(tabs1[1].but);
-                        Array.from(cell_pronostix[i].childNodes[1].childNodes[1].childNodes).forEach(function(element){
-                            return console.log(element.childNodes)
-                        })
-                        
-                    }
+                                    }) 
+                                }
+                            })  
+                        result()
+                    } 
                 } else {
-                        alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
-                        console.log('Le tournois est annulé : ERROR !'); 
-                        false;  
-                    }
+                    alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
+                    console.log('Le tournois est annulé : ERROR !'); 
+                    false;  
                 }
-    playerFootPronostix()
+            }
+        playerFootPronostix()
 
  
