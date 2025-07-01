@@ -191,7 +191,6 @@ function playerFootPronostix(){
 
                 const tableau = tabs_0.concat(tabs_1);
 
-                
                 for(let j = 0; j < tableau.length; j = j + 1){
                     const listDivImg = document.createElement('div');
                     const newScoreList = document.createElement('div');
@@ -212,16 +211,8 @@ function playerFootPronostix(){
                     listDivImg.appendChild(listDivName)
                     const tab_name = [tabs0[1].name, tabs1[1].name];
                     listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
-                    newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0'>";  } 
-             
-                    
-                        function result(){
-                            for(let j = 0; j < tableau.length; j = j + 1){
-                                const tab_but = [tabs0[1].but, tabs1[1].but]
-                                console.log(cell_pronostix[i].childNodes[1].childNodes[1].childNodes[j].innerHTML = "<p>" + tab_but[j] + "</p>")
-                            } 
-                        }
-                 
+                    newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0'>"; } 
+                                        
                         const divNewMiddle_3 = document.createElement('div');
                         const btn = document.createElement("BUTTON");
                         const t = document.createTextNode("Validation");
@@ -231,29 +222,53 @@ function playerFootPronostix(){
                         divNewMiddle_3.appendChild(btn); btn.appendChild(t);
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                         buttonPronostix[i].style.display = "block"; 
-                        buttonPronostix[i].addEventListener('click', function(){
-                            console.log(counter+=20);
-                            contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
-                            if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                console.log("Resultat");
-                                cell_pronostix.forEach(function(element){
-                                    const iterator = element.childNodes[1].childNodes[1].childNodes;
-                                    for(const value of iterator){
-                                        for(let k = 0; k < value.childNodes.length; k = k + 1){
-                                                value.childNodes[k].remove(); 
-                                            }
-                                        }
-                                    }) 
+
+                        //resultat().forEach(function(element){ return console.log(element) })
+                            // cell_pronostix.forEach(function(element){
+                            //     const iterator = element.childNodes[1].childNodes[1].childNodes;
+                            //     for(const value of iterator){
+                            //         for(let k = 0; k < value.childNodes.length; k = k + 1){
+                            //                 value.childNodes[k].remove();     
+                            //          }
+                            //      }
+                            //  }) 
+                            // console.log(cell_pronostix[i].childNodes[1].childNodes[1].childNodes[j].innerHTML = "<p>" + tab_but[j] + "</p>");
+                            
+                            function resultat(){
+                                pushAnim()
+                                for(let i = 0; i < cell_pronostix.length; i = i + 1){
+                                    resultatMach()
+                                    return tab_but = [tabs0[1].but, tabs1[1].but]
                                 }
-                            })  
-                        result()
-                    } 
-                } else {
-                    alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
-                    console.log('Le tournois est annulé : ERROR !'); 
-                    false;  
+                                
+                            }
+
+                            function resultatMach(){
+                                console.log("Resultat en cours");
+                                if(cell_pronostix.length >= operationPronostic(numberPlayer)){
+                                    console.log("Affichage du resultat");
+                                } 
+                            } 
+                            
+                            function pushAnim(){
+                                (counter+=20)
+                                contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
+                             
+                            }
+
+                            function btnResult(){
+                                resultat()
+                            }  
+                            
+                                buttonPronostix[i].addEventListener('click', btnResult, true)
+                            } 
+
+                    } else {
+                        alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
+                        console.log('Le tournois est annulé : ERROR !'); 
+                        false;  
+                    }
                 }
-            }
-        playerFootPronostix()
+            playerFootPronostix()
 
  
