@@ -222,33 +222,34 @@ function playerFootPronostix(){
                         divNewMiddle_3.appendChild(btn); btn.appendChild(t);
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                         buttonPronostix[i].style.display = "block"; 
-
-                        //resultat().forEach(function(element){ return console.log(element) })
-                            // cell_pronostix.forEach(function(element){
-                            //     const iterator = element.childNodes[1].childNodes[1].childNodes;
-                            //     for(const value of iterator){
-                            //         for(let k = 0; k < value.childNodes.length; k = k + 1){
-                            //                 value.childNodes[k].remove();     
-                            //          }
-                            //      }
-                            //  }) 
-                            // console.log(cell_pronostix[i].childNodes[1].childNodes[1].childNodes[j].innerHTML = "<p>" + tab_but[j] + "</p>");
                             
                             function resultat(){
                                 pushAnim()
+                                resultatMach()
                                 for(let i = 0; i < cell_pronostix.length; i = i + 1){
-                                    resultatMach()
                                     return tab_but = [tabs0[1].but, tabs1[1].but]
-                                }
+                                } 
                                 
+                            }
+
+                            function removeInput(){
+                                cell_pronostix.forEach(function(element){
+                                const iterator = element.childNodes[1].childNodes[1].childNodes;
+                                for(const value of iterator){
+                                    for(let k = 0; k < value.childNodes.length; k = k + 1){
+                                            value.childNodes[k].remove();     
+                                        }
+                                    }
+                                }) 
                             }
 
                             function resultatMach(){
                                 console.log("Resultat en cours");
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                    console.log("Affichage du resultat");
+                                        removeInput()    
+                                        console.log("Affichage du resultat");
+                                    } 
                                 } 
-                            } 
                             
                             function pushAnim(){
                                 (counter+=20)
@@ -257,7 +258,7 @@ function playerFootPronostix(){
                             }
 
                             function btnResult(){
-                                resultat()
+                                console.log(resultat())
                             }  
                             
                                 buttonPronostix[i].addEventListener('click', btnResult, true)
