@@ -222,17 +222,17 @@ function playerFootPronostix(){
                         divNewMiddle_3.appendChild(btn); btn.appendChild(t);
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                         buttonPronostix[i].style.display = "block"; 
-                            
+                        const input_pronostix = document.querySelectorAll(".but-pronostix")
+                        
                             function resultat(){
                                 pushAnim()
                                 resultatMach()
                                 for(let i = 0; i < cell_pronostix.length; i = i + 1){
                                     return tab_but = [tabs0[1].but, tabs1[1].but]
                                 } 
-                                
                             }
 
-                            function removeInput(){
+                            function removeInputScore(){
                                 cell_pronostix.forEach(function(element){
                                 const iterator = element.childNodes[1].childNodes[1].childNodes;
                                 for(const value of iterator){
@@ -243,10 +243,19 @@ function playerFootPronostix(){
                                 }) 
                             }
 
+                            function  updateScored(){
+                                for(let i = 0; i < input_pronostix.length; i = i + 1){
+                                    input_pronostix[i].childNodes.forEach(function(element){
+                                        console.log(element.value);
+                                    })
+                                }
+                            }
+
                             function resultatMach(){
+                               updateScored()
                                 console.log("Resultat en cours");
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                        removeInput()    
+                                        removeInputScore()    
                                         console.log("Affichage du resultat");
                                     } 
                                 } 
@@ -254,12 +263,9 @@ function playerFootPronostix(){
                             function pushAnim(){
                                 (counter+=20)
                                 contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
-                             
                             }
 
-                            function btnResult(){
-                                console.log(resultat())
-                            }  
+                            function btnResult(){ console.log(resultat()) }  
                             
                                 buttonPronostix[i].addEventListener('click', btnResult, true)
                             } 
