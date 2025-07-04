@@ -222,13 +222,14 @@ function playerFootPronostix(){
                         divNewMiddle_3.appendChild(btn); btn.appendChild(t);
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                         buttonPronostix[i].style.display = "block"; 
-                        const input_pronostix = document.querySelectorAll(".but-pronostix")
+                        const tab_but = [tabs0[1].but, tabs1[1].but]; 
+                        console.log(tab_but);
                         
                             function resultat(){
                                 pushAnim()
                                 resultatMach()
-                                for(let i = 0; i < cell_pronostix.length; i = i + 1){
-                                    return tab_but = [tabs0[1].but, tabs1[1].but]
+                                for(let i = 0; i < cell_pronostix.length; i = i + 1){ 
+                                    return tab_but;
                                 } 
                             }
 
@@ -243,16 +244,25 @@ function playerFootPronostix(){
                                 }) 
                             }
 
-                            function  updateScored(){
-                                for(let i = 0; i < input_pronostix.length; i = i + 1){
-                                    input_pronostix[i].childNodes.forEach(function(element){
-                                        console.log(element.value);
-                                    })
+                            function updatatedScored(){
+                                const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
+                                array_but.forEach(function(element){
+                                    const indexScore = element.childNodes[0].value;
+                                    console.log(Number(indexScore))
+                                    validateUpdatated(tab_but, Number(indexScore))
+                                })
+                            }
+
+                            function validateUpdatated(array, index){
+                                if(array.indexOf(index) !== -1){
+                                    console.log("Bonne réponse")
+                                } else {
+                                    console.log("Mauvaise réponse")
                                 }
                             }
 
                             function resultatMach(){
-                               updateScored()
+                               updatatedScored();
                                 console.log("Resultat en cours");
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
                                         removeInputScore()    
@@ -261,14 +271,14 @@ function playerFootPronostix(){
                                 } 
                             
                             function pushAnim(){
-                                (counter+=20)
+                                (counter+=20);
                                 contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
                             }
 
                             function btnResult(){ console.log(resultat()) }  
                             
-                                buttonPronostix[i].addEventListener('click', btnResult, true)
-                            } 
+                            buttonPronostix[i].addEventListener('click', btnResult, true)
+                        } 
 
                     } else {
                         alert("Le nombre de joueurs est trop élevé pour le déroulement du pronostic !");
