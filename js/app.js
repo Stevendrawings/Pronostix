@@ -248,7 +248,11 @@ function playerFootPronostix(){
                                 for(let l = 0; l < tab_but.length; l = l + 1){
                                     const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
                                     const indexScore = [parseInt(array_but[0].childNodes[0].value), parseInt(array_but[1].childNodes[0].value)];
-                                    console.log(tab_but[l], indexScore[l])
+                                    if(tab_but[l] === indexScore[l]){
+                                        console.log("Bonne réponse");
+                                    } else if(indexScore[l] !== tab_but[l]){
+                                        console.log("Mauvaise réponse"); 
+                                    }
                                 }
                             }
 
