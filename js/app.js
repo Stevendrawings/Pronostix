@@ -211,7 +211,7 @@ function playerFootPronostix(){
                     listDivImg.appendChild(listDivName)
                     const tab_name = [tabs0[1].name, tabs1[1].name];
                     listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
-                    newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0'>"; } 
+                    newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0' maxlength='1'>"; } 
                                         
                         const divNewMiddle_3 = document.createElement('div');
                         const btn = document.createElement("BUTTON");
@@ -245,19 +245,10 @@ function playerFootPronostix(){
                             }
 
                             function updatatedScored(){
-                                const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
-                                array_but.forEach(function(element){
-                                    const indexScore = element.childNodes[0].value;
-                                    console.log(Number(indexScore))
-                                    validateUpdatated(tab_but, Number(indexScore))
-                                })
-                            }
-
-                            function validateUpdatated(array, index){
-                                if(array.indexOf(index) !== -1){
-                                    console.log("Bonne réponse")
-                                } else {
-                                    console.log("Mauvaise réponse")
+                                for(let l = 0; l < tab_but.length; l = l + 1){
+                                    const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
+                                    const indexScore = [parseInt(array_but[0].childNodes[0].value), parseInt(array_but[1].childNodes[0].value)];
+                                    console.log(tab_but[l], indexScore[l])
                                 }
                             }
 
@@ -265,17 +256,17 @@ function playerFootPronostix(){
                                updatatedScored();
                                 console.log("Resultat en cours");
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                        removeInputScore()    
-                                        console.log("Affichage du resultat");
-                                    } 
+                                    removeInputScore()    
+                                    console.log("Affichage du resultat");
                                 } 
+                            } 
                             
                             function pushAnim(){
                                 (counter+=20);
                                 contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
                             }
 
-                            function btnResult(){ console.log(resultat()) }  
+                            function btnResult(){ resultat() }  
                             
                             buttonPronostix[i].addEventListener('click', btnResult, true)
                         } 
