@@ -247,24 +247,28 @@ function playerFootPronostix(){
                             function updatatedScored(){
                                 for(let l = 0; l < tab_but.length; l = l + 1){
                                     const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
-                                    const indexScore = [parseInt(array_but[0].childNodes[0].value), parseInt(array_but[1].childNodes[0].value)];
-                                    if(tab_but[l] === indexScore[l]){
-                                        console.log("Bonne réponse");
-                                    } else if(indexScore[l] !== tab_but[l]){
-                                        console.log("Mauvaise réponse"); 
+                                    const indexScore = [array_but[0].childNodes[0].value, array_but[1].childNodes[0].value];
+                                    if(((indexScore[0] === "") || (indexScore[1] !== "")) && ((indexScore[0] !== "") || (indexScore[1] === ""))){
+                                        if(((parseInt(indexScore[0]) === tab_but[0]) === true) && ((parseInt(indexScore[1]) === tab_but[1]) === true)){
+                                            console.log("Bonne réponse");
+                                        } else {
+                                            console.log("Mauvaise réponse"); 
+                                        }
+                                    } else {
+                                        console.log("Réponse incorrecte"); 
                                     }
                                 }
                             }
 
                             function resultatMach(){
                                updatatedScored();
-                                console.log("Resultat en cours");
+                                console.log("----------- [Resultat en cours] -----------");
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
                                     removeInputScore()    
-                                    console.log("Affichage du resultat");
+                                    console.log("----------- [Affichage du resultat] -----------");
                                 } 
                             } 
-                            
+
                             function pushAnim(){
                                 (counter+=20);
                                 contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
