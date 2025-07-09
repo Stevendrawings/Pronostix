@@ -167,6 +167,9 @@ function playerFootPronostix(){
                 const middleContent = document.createElement("div");
                 const divNewMiddle_1 = document.createElement('div');
                 const divNewMiddle_2 = document.createElement('div');
+                const result_true = document.createElement('div');
+                const result_false = document.createElement('div');
+                const result_ERROR = document.createElement('div');
 
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
@@ -203,6 +206,12 @@ function playerFootPronostix(){
                     divNewMiddle_1.innerHTML = "<span>" + operationPronostic(numberPlayer) + " / " + (i+1) + "</span>";
                     document.body.insertBefore(divNewMiddle_2, curentDiv).classList.add("score-pronostix")
                     middleContent.appendChild(divNewMiddle_2);
+                    document.body.insertBefore(result_true, curentDiv).classList.add("result-true")
+                    middleContent.appendChild(result_true)
+                    document.body.insertBefore(result_false, curentDiv).classList.add("result-false")
+                    middleContent.appendChild(result_false)
+                    document.body.insertBefore(result_ERROR, curentDiv).classList.add("result-error")
+                    middleContent.appendChild(result_ERROR)
                     document.body.insertBefore(newScoreList, curentDiv).classList.add("but-pronostix");
                     divNewMiddle_2.appendChild(newScoreList);
                     newDiv.appendChild(listDivImg);
@@ -251,11 +260,14 @@ function playerFootPronostix(){
                                     if(((indexScore[0] === "") || (indexScore[1] !== "")) && ((indexScore[0] !== "") || (indexScore[1] === ""))){
                                         if(((parseInt(indexScore[0]) === tab_but[0]) === true) && ((parseInt(indexScore[1]) === tab_but[1]) === true)){
                                             console.log("Bonne réponse");
+                                            result_true.style.display = "block"; 
                                         } else {
                                             console.log("Mauvaise réponse"); 
+                                            result_false.style.display = "block"; 
                                         }
                                     } else {
                                         console.log("Réponse incorrecte"); 
+                                        result_ERROR.style.display = "block"; 
                                     }
                                 }
                             }
