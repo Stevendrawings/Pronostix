@@ -209,23 +209,22 @@ input::placeholder {  color: #b2bec3 }
 
     @keyframes moveinfiniteblue { to { offset-distance: -100% } }
 
-/* Mauvaise réponse
-    display: block;
-    float: right;
+.result-true {
     background: #daffd6;
-    padding: 5px 20px;
-    border-radius: 50px;
-    colo: aliceblue;
-    color: #3b9a4e; */
+    color: #3b9a4e }
 
-/* Bonne réponse 
-    display: block;
-    float: right;
+.result-false {
     background: #ffd6d6;
+    color: #9a3b5b }
+    
+.result-error {
+    background: #bdbdbd;
+    color: #7e7e7e }
+
+.result-true, .result-false, .result-error {
     padding: 5px 20px;
     border-radius: 50px;
-    colo: aliceblue;
-    color: #9a3b5b; */
+    display: none}
 
 .name-player-pronostix p { font-size: 13px }
 
