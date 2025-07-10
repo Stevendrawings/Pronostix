@@ -261,13 +261,16 @@ function playerFootPronostix(){
                                         if(((parseInt(indexScore[0]) === tab_but[0]) === true) && ((parseInt(indexScore[1]) === tab_but[1]) === true)){
                                             console.log("Bonne réponse");
                                             result_true.style.display = "block"; 
+                                            result_true.textContent = "Bonne réponse";
                                         } else {
                                             console.log("Mauvaise réponse"); 
                                             result_false.style.display = "block"; 
+                                            result_false.textContent = "Mauvaise réponse";
                                         }
                                     } else {
                                         console.log("Réponse incorrecte"); 
                                         result_ERROR.style.display = "block"; 
+                                        result_ERROR.textContent = "Réponse incorrecte";
                                     }
                                 }
                             }
