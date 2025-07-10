@@ -155,7 +155,6 @@ input[type=submit] {
   cursor: pointer }
 
 .but-pronostix { margin: 10px }
-
 input::placeholder {  color: #b2bec3 }
 
 .shadow-atome {
@@ -206,7 +205,6 @@ input::placeholder {  color: #b2bec3 }
     box-shadow: 0 0 30px 30px #ff2222, 0 0 50px 30px #ff0e77, 0 0 70px 30px #ff3580 }
 
     @keyframes moveinfinitered { to { offset-distance: 100% } }
-
     @keyframes moveinfiniteblue { to { offset-distance: -100% } }
 
 .result-true {
@@ -218,13 +216,14 @@ input::placeholder {  color: #b2bec3 }
     color: #9a3b5b }
     
 .result-error {
-    background: #bdbdbd;
+    background: #cdcdcd;
     color: #7e7e7e }
 
 .result-true, .result-false, .result-error {
-    padding: 5px 20px;
+    padding: 10px 20px;
     border-radius: 50px;
-    display: none}
+    display: none;
+    font-size: 12px; }
 
 .name-player-pronostix p { font-size: 13px }
 
@@ -243,5 +242,4 @@ input::placeholder {  color: #b2bec3 }
     margin: 10px;
     width: 100%;
     max-width: 650px;
-    height: auto } 
-}
+    height: auto } }
