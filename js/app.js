@@ -231,58 +231,69 @@ function playerFootPronostix(){
                         divNewMiddle_3.appendChild(btn); btn.appendChild(t);
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                         buttonPronostix[i].style.display = "block"; 
-                        const tab_but = [tabs0[1].but, tabs1[1].but]; 
-                        console.log(tab_but);
+                        const tab_but = [tabs0[1].but, tabs1[1].but]; console.log(tab_but);
                         
                             function resultat(){
                                 pushAnim()
-                                resultatMach()
+                                updatatedScored()
                                 for(let i = 0; i < cell_pronostix.length; i = i + 1){ 
                                     return tab_but;
                                 } 
                             }
 
                             function removeInputScore(){
-                                cell_pronostix.forEach(function(element){
-                                const iterator = element.childNodes[1].childNodes[1].childNodes;
-                                for(const value of iterator){
-                                    for(let k = 0; k < value.childNodes.length; k = k + 1){
-                                            value.childNodes[k].remove();     
+                                    for(let k = 0; k < cell_pronostix.length; k = k + 1){
+                                        const iterateur = [cell_pronostix[k].childNodes[1].childNodes[1].childNodes]
+                                            for(let n = 0; n < iterateur.length; n = n + 1){
+                                                iterateur[n].forEach(function(element){
+                                                    console.log(element.childNodes[n].value)
+                                                })
+                                            }
                                         }
                                     }
-                                }) 
-                            }
+                                    
+                            // function removeInputScore(){
+                            //     cell_pronostix.forEach(function(element){
+                            //     const iterator = element.childNodes[1].childNodes[1].childNodes;
+                            //     for(const value of iterator){
+                            //         for(let k = 0; k < value.childNodes.length; k = k + 1){
+                            //                 value.childNodes[k].remove();     
+                            //             }
+                            //         }
+                            //     }) 
+                            // }
 
-                            function updatatedScored(){
+                            function updatatedScored(){  
+                                for(let i = 0; i < cell_pronostix.length; i = i + 1){ 
+                                const div_result_true = document.querySelectorAll(".result-true");   
+                                const div_result_false = document.querySelectorAll(".result-false"); 
+                                const div_result_ERROR = document.querySelectorAll(".result-error");              
+                                const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
+                                const indexScore = [array_but[0].childNodes[0].value, array_but[1].childNodes[0].value];
+                                console.log("----------- [Resultat en cours] -----------");
+                                if(cell_pronostix.length >= operationPronostic(numberPlayer)){ 
+                                removeInputScore() 
+                                console.log("----------- [Affichage du resultat] -----------");
                                 for(let l = 0; l < tab_but.length; l = l + 1){
-                                    const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
-                                    const indexScore = [array_but[0].childNodes[0].value, array_but[1].childNodes[0].value];
                                     if(((indexScore[0] === "") || (indexScore[1] !== "")) && ((indexScore[0] !== "") || (indexScore[1] === ""))){
                                         if(((parseInt(indexScore[0]) === tab_but[0]) === true) && ((parseInt(indexScore[1]) === tab_but[1]) === true)){
                                             console.log("Bonne réponse");
-                                            result_true.style.display = "block"; 
-                                            result_true.textContent = "Bonne réponse";
+                                            div_result_true[i].style.display = "block"; 
+                                            div_result_true[i].textContent = "Bonne réponse";
                                         } else {
                                             console.log("Mauvaise réponse"); 
-                                            result_false.style.display = "block"; 
-                                            result_false.textContent = "Mauvaise réponse";
-                                        }
+                                            div_result_false[i].style.display = "block"; 
+                                            div_result_false[i].textContent = "Mauvaise réponse";
+                                        } 
                                     } else {
                                         console.log("Réponse incorrecte"); 
-                                        result_ERROR.style.display = "block"; 
-                                        result_ERROR.textContent = "Réponse incorrecte";
+                                        div_result_ERROR[i].style.display = "block"; 
+                                        div_result_ERROR[i].textContent = "Réponse incorrecte";
+                                            }
+                                        }
                                     }
                                 }
                             }
-
-                            function resultatMach(){
-                               updatatedScored();
-                                console.log("----------- [Resultat en cours] -----------");
-                                if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                    removeInputScore()    
-                                    console.log("----------- [Affichage du resultat] -----------");
-                                } 
-                            } 
 
                             function pushAnim(){
                                 (counter+=20);
