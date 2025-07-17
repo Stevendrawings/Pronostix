@@ -231,7 +231,9 @@ function playerFootPronostix(){
                         divNewMiddle_3.appendChild(btn); btn.appendChild(t);
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
                         buttonPronostix[i].style.display = "block"; 
-                        const tab_but = [tabs0[1].but, tabs1[1].but]; console.log(tab_but);
+                        const tab_but = [tabs0[1].but, tabs1[1].but]; 
+                        console.log(tab_but);
+
                         
                             function resultat(){
                                 pushAnim()
@@ -242,45 +244,37 @@ function playerFootPronostix(){
                             }
    
                             function updatatedScored(){  
+                                const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
+                                const indexScore = [array_but[0].childNodes[0], array_but[1].childNodes[0]];
                                 const div_result_true = document.querySelectorAll(".result-true");   
                                 const div_result_false = document.querySelectorAll(".result-false"); 
                                 const div_result_ERROR = document.querySelectorAll(".result-error");     
-                                const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
-                                const indexScore = [array_but[0].childNodes[0], array_but[1].childNodes[0]];
-                                console.log("--------- [Resultat en cours] ---------"); 
-                                console.log(parseInt(indexScore[0].value) === parseInt(tab_but[0]), parseInt(indexScore[1].value) === parseInt(tab_but[1]))
-                                function awaitResult(){
-                                    
-                                                                    //if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                console.log("--------- [Affichage du resultat] ---------");
-                                console.log(parseInt(indexScore[0].value), parseInt(tab_but[0]))
-                                console.log(parseInt(indexScore[1].value), parseInt(tab_but[1]))
 
-                                for(let l = 0; l < tab_but.length; l = l + 1){ 
-                                    if(((parseInt(indexScore[0].value) === NaN) || (parseInt(indexScore[1].value) !== NaN)) && ((parseInt(indexScore[1].value) !== NaN) || (parseInt(indexScore[1].value) === NaN))){
-                                        if((parseInt(indexScore[0].value) === tab_but[0]) && ((parseInt(indexScore[1].value) === tab_but[1]))){
-                                            console.log("Bonne réponse");
-                                            div_result_true[i].style.display = "block"; 
-                                            div_result_true[i].textContent = "Bonne réponse";
+                                console.log("--------- [Resultat en cours] ---------"); 
+
+                                function awaitExecution(){
+                                    console.log("--------- [Affichage du resultat] ---------");
+                                    console.log(tab_but)
+                                    console.log(parseInt(indexScore[0].value) === parseInt(tab_but[0]), parseInt(indexScore[1].value) === parseInt(tab_but[1]))
+                                        if(((parseInt(indexScore[0].value) === NaN) || (parseInt(indexScore[1].value) !== NaN)) && ((parseInt(indexScore[1].value) !== NaN) || (parseInt(indexScore[1].value) === NaN))){
+                                            if((parseInt(indexScore[0].value) === tab_but[0]) && ((parseInt(indexScore[1].value) === tab_but[1]))){
+                                                console.log("Bonne réponse");
+                                                div_result_true[i].style.display = "block"; 
+                                                div_result_true[i].textContent = "Bonne réponse";
+                                            } else {
+                                                console.log("Mauvaise réponse"); 
+                                                div_result_false[i].style.display = "block"; 
+                                                div_result_false[i].textContent = "Mauvaise réponse";
+                                            } 
                                         } else {
-                                            console.log("Mauvaise réponse"); 
-                                            div_result_false[i].style.display = "block"; 
-                                            div_result_false[i].textContent = "Mauvaise réponse";
-                                        } 
-                                    } else {
-                                        console.log("Réponse incorrecte"); 
-                                        div_result_ERROR[i].style.display = "block"; 
-                                        div_result_ERROR[i].textContent = "Réponse incorrecte";
-                                            }
-                                 }
-                            
+                                            console.log("Réponse incorrecte"); 
+                                            div_result_ERROR[i].style.display = "block"; 
+                                            div_result_ERROR[i].textContent = "Réponse incorrecte";
+                                        }
+                                    }
+                                    setTimeout(awaitExecution, 3000); 
                                 }
-                                awaitResult()
-                       
-                               
-                              
-                        }
-                                    
+
                             function pushAnim(){
                                 (counter+=20);
                                 contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
