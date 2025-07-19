@@ -238,9 +238,9 @@ function playerFootPronostix(){
                             function resultat(){
                                 pushAnim()
                                 updatatedScored()
-                                for(let i = 0; i < cell_pronostix.length; i = i + 1){ 
-                                    return tab_but;
-                                } 
+                                if(cell_pronostix.length >= operationPronostic(numberPlayer)){
+                                    console.log("Fin du match")
+                                }
                             }
    
                             function updatatedScored(){  
@@ -249,6 +249,8 @@ function playerFootPronostix(){
                                 const div_result_true = document.querySelectorAll(".result-true");   
                                 const div_result_false = document.querySelectorAll(".result-false"); 
                                 const div_result_ERROR = document.querySelectorAll(".result-error");     
+
+                                console.log(parseInt(indexScore[0].value), parseInt(indexScore[1].value)) 
 
                                 console.log("--------- [Resultat en cours] ---------"); 
 
@@ -272,7 +274,7 @@ function playerFootPronostix(){
                                             div_result_ERROR[i].textContent = "Réponse incorrecte";
                                         }
                                     }
-                                    setTimeout(awaitExecution, 3000); 
+                                    setTimeout(awaitExecution, 4000); 
                                 }
 
                             function pushAnim(){
