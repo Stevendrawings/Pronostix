@@ -145,9 +145,28 @@ function playerFootPronostix(){
     const atome_red = document.createElement('div');
     const atome_blue = document.createElement('div');
 
-    let counter = 0;
+    let counter = 0, counte_play = 0
+
+    const sp1 = document.createElement('div')
+    const tagNewDiv = document.getElementsByTagName('body')[0];
+    const curentTagDiv = document.getElementById("div");
+
+    const newDiv_counter = document.createElement("div");
+    const curentContentDiv = document.querySelector(".content-pronostix");
+    tagNewDiv.appendChild(sp1)
+    sp1.classList.add("content_counter_pronostix");
+    let parentCounter = document.querySelector(".content_counter_pronostix")
+    newDiv_counter.classList.add("counter_div")
+    newDiv_counter.innerHTML = "<p>" + (counte_play + " " + "€") + "</p>"
+    parentCounter.appendChild(newDiv_counter)
+    document.body.insertBefore(sp1, curentTagDiv)
+    document.body.insertBefore(curentContentDiv, curentTagDiv)
+    tagNewDiv.appendChild(curentContentDiv)
+    const scripttor = document.getElementsByTagName("script")[0]
+    tagNewDiv.appendChild(scripttor)
 
         if(numberPlayer <= 10){
+
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
 
                 let arr0 = Object.entries(liste_A_ligue1);
@@ -161,8 +180,8 @@ function playerFootPronostix(){
 
                     myImage0.src = tabs0[1].logo;
                     myImage1.src = tabs1[1].logo;
-
-                const curentContentDiv = document.querySelector(".content-pronostix");
+             
+                const curentDiv = document.getElementById("div");
                 const newDiv = document.createElement("div");
                 const middleContent = document.createElement("div");
                 const divNewMiddle_1 = document.createElement('div');
@@ -171,22 +190,18 @@ function playerFootPronostix(){
                 const result_false = document.createElement('div');
                 const result_ERROR = document.createElement('div');
 
+
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
-
-                const curentDiv = document.getElementById("div");
+                
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
-                contentchild.classList.add("contentChild-pronostix");
-                curentContentDiv.appendChild(shadow_atome)
-                shadow_atome.classList.add('shadow-atome');
-                curentContentDiv.appendChild(content_atome);
-                content_atome.classList.add("content_atome");
-                content_atome.appendChild(atome_red);
-                atome_red.classList.add("atome_red")
-                content_atome.appendChild(atome_blue)
-                atome_blue.classList.add("atome_blue")
-                curentContentDiv.appendChild(contentchild)
-                contentchild.appendChild(newDiv)
+
+                contentchild.classList.add("contentChild-pronostix"); curentContentDiv.appendChild(shadow_atome)
+                shadow_atome.classList.add('shadow-atome'); curentContentDiv.appendChild(content_atome);
+                content_atome.classList.add("content_atome"); content_atome.appendChild(atome_red);
+                atome_red.classList.add("atome_red"); content_atome.appendChild(atome_blue);
+                atome_blue.classList.add("atome_blue"); curentContentDiv.appendChild(contentchild);
+                contentchild.appendChild(newDiv); 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
 
                 const tabs_0 = [cell_pronostix[i].childNodes[0]];
@@ -198,14 +213,14 @@ function playerFootPronostix(){
                     const listDivImg = document.createElement('div');
                     const newScoreList = document.createElement('div');
                     document.body.insertBefore(listDivImg, curentDiv).classList.add("img-pronostix")
-                    listDivImg.appendChild(tableau[j]);
+                    listDivImg.appendChild(tableau[j])
                     document.body.insertBefore(middleContent, curentDiv).classList.add("middle-content-pronostix")
-                    newDiv.appendChild(middleContent); // Ajout de la div middle entre les divs principal des joueurs 
+                    newDiv.appendChild(middleContent) // Ajout de la div middle entre les divs principal des joueurs 
                     document.body.insertBefore(divNewMiddle_1, curentDiv).classList.add("counter-card-pronostix")
-                    middleContent.appendChild(divNewMiddle_1);
+                    middleContent.appendChild(divNewMiddle_1)
                     divNewMiddle_1.innerHTML = "<span>" + operationPronostic(numberPlayer) + " / " + (i+1) + "</span>";
                     document.body.insertBefore(divNewMiddle_2, curentDiv).classList.add("score-pronostix")
-                    middleContent.appendChild(divNewMiddle_2);
+                    middleContent.appendChild(divNewMiddle_2)
                     document.body.insertBefore(result_true, curentDiv).classList.add("result-true")
                     middleContent.appendChild(result_true)
                     document.body.insertBefore(result_false, curentDiv).classList.add("result-false")
@@ -213,8 +228,8 @@ function playerFootPronostix(){
                     document.body.insertBefore(result_ERROR, curentDiv).classList.add("result-error")
                     middleContent.appendChild(result_ERROR)
                     document.body.insertBefore(newScoreList, curentDiv).classList.add("but-pronostix");
-                    divNewMiddle_2.appendChild(newScoreList);
-                    newDiv.appendChild(listDivImg);
+                    divNewMiddle_2.appendChild(newScoreList); newDiv.appendChild(listDivImg);
+
                     const listDivName = document.createElement('div');
                     document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix");
                     listDivImg.appendChild(listDivName)
@@ -234,52 +249,53 @@ function playerFootPronostix(){
                         const tab_but = [tabs0[1].but, tabs1[1].but]; 
                         console.log(tab_but);
 
-                        
-                            function resultat(){
-                                pushAnim()
-                                updatatedScored()
-                                if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                    console.log("Fin du match")
-                                }
-                            }
+                            function loadingResultatPronostix(){ console.log("Chargement de la page...") }
    
                             function updatatedScored(){  
                                 const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
                                 const indexScore = [array_but[0].childNodes[0], array_but[1].childNodes[0]];
                                 const div_result_true = document.querySelectorAll(".result-true");   
-                                const div_result_false = document.querySelectorAll(".result-false"); 
-                                const div_result_ERROR = document.querySelectorAll(".result-error");     
-
-                                console.log(parseInt(indexScore[0].value), parseInt(indexScore[1].value)) 
+                                const div_result_false = document.querySelectorAll(".result-false");   
 
                                 console.log("--------- [Resultat en cours] ---------"); 
 
                                 function awaitExecution(){
                                     console.log("--------- [Affichage du resultat] ---------");
                                     console.log(tab_but)
+                                    
                                     console.log(parseInt(indexScore[0].value) === parseInt(tab_but[0]), parseInt(indexScore[1].value) === parseInt(tab_but[1]))
                                         if(((parseInt(indexScore[0].value) === NaN) || (parseInt(indexScore[1].value) !== NaN)) && ((parseInt(indexScore[1].value) !== NaN) || (parseInt(indexScore[1].value) === NaN))){
                                             if((parseInt(indexScore[0].value) === tab_but[0]) && ((parseInt(indexScore[1].value) === tab_but[1]))){
                                                 console.log("Bonne réponse");
                                                 div_result_true[i].style.display = "block"; 
                                                 div_result_true[i].textContent = "Bonne réponse";
+                                                newDiv_counter.innerHTML = "<p>" + ((counte_play += 100) + " " + "€") + "</p>"
                                             } else {
                                                 console.log("Mauvaise réponse"); 
                                                 div_result_false[i].style.display = "block"; 
                                                 div_result_false[i].textContent = "Mauvaise réponse";
+                                                newDiv_counter.innerHTML = "<p>" + ((counte_play -= 100) + " " + "€") + "</p>"
                                             } 
-                                        } else {
-                                            console.log("Réponse incorrecte"); 
-                                            div_result_ERROR[i].style.display = "block"; 
-                                            div_result_ERROR[i].textContent = "Réponse incorrecte";
                                         }
                                     }
-                                    setTimeout(awaitExecution, 4000); 
+                                    setTimeout(awaitExecution, 3000); 
                                 }
 
                             function pushAnim(){
                                 (counter+=20);
                                 contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
+                            }
+
+                            function resultat(){
+                                pushAnim()
+                                updatatedScored()
+                                if(cell_pronostix.length >= operationPronostic(numberPlayer)){
+                                    loadingResultatPronostix()
+                                    console.log(curentContentDiv.style.overflow = "visible")
+                                    console.log(newDiv_counter.style.transform = "translateY(120px)")
+                                    console.log(curentContentDiv.style.transform = "translateY(640px)")
+                                    console.log("--------- [Fin du match] ---------")
+                                }
                             }
 
                             function btnResult(){ resultat() }  
