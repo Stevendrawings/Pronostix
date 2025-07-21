@@ -130,11 +130,9 @@ let liste_B_ligue1 = {
     },
 }
 
-function cointMisor(number){  return number  }
+function scoreBut(){  return Math.floor(Math.random() * 6); }
 
-function scoreBut(){  return Math.floor(Math.random() * 6);  }
-
-function operationPronostic(num){ return num * 2  }
+function operationPronostic(num){ return num * 2 }
 
 function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 
@@ -271,15 +269,15 @@ function playerFootPronostix(){
                                                 div_result_true[i].textContent = "Bonne réponse";
                                                 newDiv_counter.innerHTML = "<p>" + ((counte_play += 100) + " " + "€") + "</p>";
                                             } else {
-                                                if(counte_play > 0){
                                                     console.log("Mauvaise réponse"); 
                                                     div_result_false[i].style.display = "block"; 
                                                     div_result_false[i].textContent = "Mauvaise réponse";
+                                                if(counte_play > 0){
                                                     newDiv_counter.innerHTML = "<p>" + ((counte_play -= 100) + " " + "€") + "</p>";
                                                 }
                                             } 
                                         }
-                                    }
+                                    } 
                                     setTimeout(awaitExecution, 3000); 
                                 }
 
@@ -294,14 +292,17 @@ function playerFootPronostix(){
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
                                     loadingResultatPronostix()
                                     content_atome.style.display = "none";
+                                    shadow_atome.style.display = "none";
                                     console.log(curentContentDiv.style.overflow = "visible")
-                                    console.log(newDiv_counter.style.transform = "translateY(" + (newDiv.clientHeight * operationPronostic(numberPlayer)) +  "px)")
-                                    console.log(curentContentDiv.style.transform = "translateY(" + (newDiv.clientHeight * operationPronostic(numberPlayer)) + "px)");
+                                    console.log(newDiv_counter.style.transform = "translateY(" + 70 + "px)")
+                                    console.log(cell_pronostix[i].clientHeight, cell_pronostix[i].clientHeight * numberPlayer)
+                                    console.log(curentContentDiv.style.transform = "translateY("+ (cell_pronostix[i].clientHeight * numberPlayer) +"px)");
                                     console.log("--------- [Fin du match] ---------")
                                 }
                             }
 
                             function btnResult(){ resultat() }  
+
                             buttonPronostix[i].addEventListener('click', btnResult, true)
 
                         } 
