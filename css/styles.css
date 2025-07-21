@@ -55,6 +55,25 @@ table {
                         /* RESET CSS */
 /* /////////////////////////////////////////////////////////// */
 
+.content_counter_pronostix {
+    display: flex;
+    justify-content: center;
+    width: 100%; }
+
+.counter_div {
+    background-color: #212121;
+    width: 130px;
+    height: 40px;
+    border-radius: 50px;
+    position: fixed;
+    margin-top: 150px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #ffd21c; }
+
 .content-pronostix{
     display: flex;
     justify-content: space-evenly;
@@ -214,18 +233,41 @@ input::placeholder {  color: #b2bec3 }
 .result-false {
     background: #ffd6d6;
     color: #9a3b5b }
-    
-.result-error {
-    background: #cdcdcd;
-    color: #7e7e7e }
 
-.result-true, .result-false, .result-error {
+.result-true, .result-false {
+    display: none;
     padding: 10px 20px;
     border-radius: 50px;
-    display: none;
     font-size: 12px; }
 
+
+
+    /* --wt-btn-text-color: var(--clg-color-sem-text-on-surface-light, #222);
+    --wt-btn-text-color-hover: var(--clg-color-sem-text-on-surface-light, #222)
+#222
+;
+    --wt-btn-border-color: #0000;
+    --wt-btn-border-color-hover: #0000;
+    --wt-btn-border-width: 0px;
+    --wt-btn-bg-color: #0000;
+    --wt-btn-bg-color-hover: #0e0e0e17;
+    --wt-btn-scale: scaleX(.7) scaleY(.7) perspective(1px); */
+
+
 .name-player-pronostix p { font-size: 13px }
+
+/* /////////////////////////////////////////////////////////// */
+                        /* CHARGEMENT */
+/* /////////////////////////////////////////////////////////// */
+
+.loader {
+    position: absolute;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center }
 
 /* /////////////////////////////////////////////////////////// */
                         /* RESPONSIVE */
