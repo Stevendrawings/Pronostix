@@ -131,8 +131,11 @@ let liste_B_ligue1 = {
 }
 
 function cointMisor(number){  return number  }
-function scoreBut(){  return Math.floor(Math.random() * [3].map((x) => x * 2));  }
+
+function scoreBut(){  return Math.floor(Math.random() * 6);  }
+
 function operationPronostic(num){ return num * 2  }
+
 function autoPlayerFoot(num){ return Math.floor(Math.random() * num) }
 
 function playerFootPronostix(){ 
@@ -145,7 +148,8 @@ function playerFootPronostix(){
     const atome_red = document.createElement('div');
     const atome_blue = document.createElement('div');
 
-    let counter = 0, counte_play = 0
+    let counter = 0;
+    let counte_play = 0; 
 
     const sp1 = document.createElement('div')
     const tagNewDiv = document.getElementsByTagName('body')[0];
@@ -157,7 +161,7 @@ function playerFootPronostix(){
     sp1.classList.add("content_counter_pronostix");
     let parentCounter = document.querySelector(".content_counter_pronostix")
     newDiv_counter.classList.add("counter_div")
-    newDiv_counter.innerHTML = "<p>" + (counte_play + " " + "€") + "</p>"
+    newDiv_counter.innerHTML = ("<p>" + (counte_play += counte_play) + " " + "€" + "</p>")
     parentCounter.appendChild(newDiv_counter)
     document.body.insertBefore(sp1, curentTagDiv)
     document.body.insertBefore(curentContentDiv, curentTagDiv)
@@ -189,7 +193,6 @@ function playerFootPronostix(){
                 const result_true = document.createElement('div');
                 const result_false = document.createElement('div');
                 const result_ERROR = document.createElement('div');
-
 
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
@@ -232,8 +235,7 @@ function playerFootPronostix(){
 
                     const listDivName = document.createElement('div');
                     document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix");
-                    listDivImg.appendChild(listDivName)
-                    const tab_name = [tabs0[1].name, tabs1[1].name];
+                    listDivImg.appendChild(listDivName); const tab_name = [tabs0[1].name, tabs1[1].name];
                     listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
                     newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0' maxlength='1'>"; } 
                                         
@@ -245,8 +247,7 @@ function playerFootPronostix(){
                         document.body.insertBefore(btn, curentDiv).classList.add("btn-pronostix")
                         divNewMiddle_3.appendChild(btn); btn.appendChild(t);
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
-                        buttonPronostix[i].style.display = "block"; 
-                        const tab_but = [tabs0[1].but, tabs1[1].but]; 
+                        buttonPronostix[i].style.display = "block"; const tab_but = [tabs0[1].but, tabs1[1].but]; 
                         console.log(tab_but);
 
                             function loadingResultatPronostix(){ console.log("Chargement de la page...") }
@@ -261,20 +262,21 @@ function playerFootPronostix(){
 
                                 function awaitExecution(){
                                     console.log("--------- [Affichage du resultat] ---------");
-                                    console.log(tab_but)
-                                    
+                                    console.log(tab_but);
                                     console.log(parseInt(indexScore[0].value) === parseInt(tab_but[0]), parseInt(indexScore[1].value) === parseInt(tab_but[1]))
                                         if(((parseInt(indexScore[0].value) === NaN) || (parseInt(indexScore[1].value) !== NaN)) && ((parseInt(indexScore[1].value) !== NaN) || (parseInt(indexScore[1].value) === NaN))){
                                             if((parseInt(indexScore[0].value) === tab_but[0]) && ((parseInt(indexScore[1].value) === tab_but[1]))){
                                                 console.log("Bonne réponse");
                                                 div_result_true[i].style.display = "block"; 
                                                 div_result_true[i].textContent = "Bonne réponse";
-                                                newDiv_counter.innerHTML = "<p>" + ((counte_play += 100) + " " + "€") + "</p>"
+                                                newDiv_counter.innerHTML = "<p>" + ((counte_play += 100) + " " + "€") + "</p>";
                                             } else {
-                                                console.log("Mauvaise réponse"); 
-                                                div_result_false[i].style.display = "block"; 
-                                                div_result_false[i].textContent = "Mauvaise réponse";
-                                                newDiv_counter.innerHTML = "<p>" + ((counte_play -= 100) + " " + "€") + "</p>"
+                                                if(counte_play > 0){
+                                                    console.log("Mauvaise réponse"); 
+                                                    div_result_false[i].style.display = "block"; 
+                                                    div_result_false[i].textContent = "Mauvaise réponse";
+                                                    newDiv_counter.innerHTML = "<p>" + ((counte_play -= 100) + " " + "€") + "</p>";
+                                                }
                                             } 
                                         }
                                     }
@@ -287,20 +289,21 @@ function playerFootPronostix(){
                             }
 
                             function resultat(){
-                                pushAnim()
+                                pushAnim()   
                                 updatatedScored()
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
                                     loadingResultatPronostix()
+                                    content_atome.style.display = "none";
                                     console.log(curentContentDiv.style.overflow = "visible")
-                                    console.log(newDiv_counter.style.transform = "translateY(120px)")
-                                    console.log(curentContentDiv.style.transform = "translateY(640px)")
+                                    console.log(newDiv_counter.style.transform = "translateY(" + (newDiv.clientHeight * operationPronostic(numberPlayer)) +  "px)")
+                                    console.log(curentContentDiv.style.transform = "translateY(" + (newDiv.clientHeight * operationPronostic(numberPlayer)) + "px)");
                                     console.log("--------- [Fin du match] ---------")
                                 }
                             }
 
                             function btnResult(){ resultat() }  
-                            
                             buttonPronostix[i].addEventListener('click', btnResult, true)
+
                         } 
 
                     } else {
