@@ -1,4 +1,6 @@
-let liste_A_ligue1 = {
+
+
+    let liste_A_ligue1 = {
     equipe0: {
         ligue: 1,
         name: "Angers SCO", //
@@ -310,7 +312,7 @@ function playerFootPronostix(){
                                     btnRestart.appendChild(t_restart);
                                     document.body.insertBefore(btnRestart, curentDiv).classList.add("btn-pronostix-restart")
                                     curentContentDiv.appendChild(btnRestart)
-                                    btnRestart.addEventListener("click", restartPronostix,  true)
+                                    btnRestart.addEventListener("click", locationreload, true)
                                 }
                             }
 
@@ -325,10 +327,10 @@ function playerFootPronostix(){
                         false;  
                     }
                 }
+                
+                playerFootPronostix()
 
-            playerFootPronostix()
+            function locationreload() { location.reload() }
 
-            function restartPronostix(){
-                console.log("recommencer")
-            }
+
 
