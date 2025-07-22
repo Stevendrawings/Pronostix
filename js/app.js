@@ -130,7 +130,9 @@ let liste_B_ligue1 = {
     },
 }
 
-function scoreBut(){  return Math.floor(Math.random() * 6); }
+function scoreBut(){  
+    return Math.floor((Math.random() * 6)); 
+}
 
 function operationPronostic(num){ return num * 2 }
 
@@ -197,11 +199,16 @@ function playerFootPronostix(){
                 
                 document.body.insertBefore(newDiv, curentDiv).classList.add("cell-pronostix");
 
-                contentchild.classList.add("contentChild-pronostix"); curentContentDiv.appendChild(shadow_atome)
-                shadow_atome.classList.add('shadow-atome'); curentContentDiv.appendChild(content_atome);
-                content_atome.classList.add("content_atome"); content_atome.appendChild(atome_red);
-                atome_red.classList.add("atome_red"); content_atome.appendChild(atome_blue);
-                atome_blue.classList.add("atome_blue"); curentContentDiv.appendChild(contentchild);
+                contentchild.classList.add("contentChild-pronostix"); 
+                curentContentDiv.appendChild(shadow_atome)
+                shadow_atome.classList.add('shadow-atome'); 
+                curentContentDiv.appendChild(content_atome);
+                content_atome.classList.add("content_atome"); 
+                content_atome.appendChild(atome_red);
+                atome_red.classList.add("atome_red"); 
+                content_atome.appendChild(atome_blue);
+                atome_blue.classList.add("atome_blue"); 
+                curentContentDiv.appendChild(contentchild);
                 contentchild.appendChild(newDiv); 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
 
@@ -297,6 +304,13 @@ function playerFootPronostix(){
                                     console.log(curentContentDiv.style.overflow = "visible")
                                     console.log(curentContentDiv.style.transform = "translateY("+ ((cell_pronostix[i].clientHeight * operationPronostic(numberPlayer)) + newDiv_counter.clientHeight + (pushContentcell + (operationPronostic(numberPlayer) * 25) ) )  +"px)");
                                     console.log("--------- [Fin du match] ---------")
+                                    console.log("button try again")
+                                    const btnRestart = document.createElement("BUTTON");
+                                    const t_restart = document.createTextNode("Recommencer");
+                                    btnRestart.appendChild(t_restart);
+                                    document.body.insertBefore(btnRestart, curentDiv).classList.add("btn-pronostix-restart")
+                                    curentContentDiv.appendChild(btnRestart)
+                                    btnRestart.addEventListener("click", restartPronostix,  true)
                                 }
                             }
 
@@ -314,4 +328,7 @@ function playerFootPronostix(){
 
             playerFootPronostix()
 
- 
+            function restartPronostix(){
+                console.log("recommencer")
+            }
+
