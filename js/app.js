@@ -293,10 +293,9 @@ function playerFootPronostix(){
                                     loadingResultatPronostix()
                                     content_atome.style.display = "none";
                                     shadow_atome.style.display = "none";
+                                    let pushContentcell = 150;
                                     console.log(curentContentDiv.style.overflow = "visible")
-                                    console.log(newDiv_counter.style.transform = "translateY(" + 70 + "px)")
-                                    console.log(cell_pronostix[i].clientHeight, cell_pronostix[i].clientHeight * numberPlayer)
-                                    console.log(curentContentDiv.style.transform = "translateY("+ (cell_pronostix[i].clientHeight * numberPlayer) +"px)");
+                                    console.log(curentContentDiv.style.transform = "translateY("+ ((cell_pronostix[i].clientHeight * operationPronostic(numberPlayer)) + newDiv_counter.clientHeight + (pushContentcell + (operationPronostic(numberPlayer) * 25) ) )  +"px)");
                                     console.log("--------- [Fin du match] ---------")
                                 }
                             }
@@ -304,7 +303,6 @@ function playerFootPronostix(){
                             function btnResult(){ resultat() }  
 
                             buttonPronostix[i].addEventListener('click', btnResult, true)
-
                         } 
 
                     } else {
