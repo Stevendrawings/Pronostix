@@ -66,7 +66,7 @@ table {
     height: 40px;
     border-radius: 50px;
     position: fixed;
-    margin-top: 150px;
+    transform: translateY(150px);
     z-index: 1;
     display: flex;
     align-items: center;
@@ -124,7 +124,7 @@ table {
 
 .logo-pronostix {
     width: 100%;
-    max-width: 70px;
+    max-width: 55px;
     max-height: fit-content;
     padding: 20px }
 
@@ -139,7 +139,19 @@ table {
     transition: all var(--transition-speed-base) ease-in-out;
     background: linear-gradient(#ffffff, #efefef) }
 
-.btn-pronostix:active { 
+.btn-pronostix-restart {
+    display: block;
+    position: absolute; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+    border: 1px solid transparent;
+    cursor: pointer;
+    border-color: #b9b9b9;
+    transition: all var(--transition-speed-base) ease-in-out;
+    background: linear-gradient(#ffffff, #efefef) }
+
+.btn-pronostix:active, .btn-pronostix-restart:active { 
     transform: translateY(2px);
     background-color: rgba(0, 0, 0, 0);
     border-color: #a9a9a9 !important;
@@ -252,7 +264,6 @@ input::placeholder {  color: #b2bec3 }
     --wt-btn-bg-color: #0000;
     --wt-btn-bg-color-hover: #0e0e0e17;
     --wt-btn-scale: scaleX(.7) scaleY(.7) perspective(1px); */
-
 
 .name-player-pronostix p { font-size: 13px }
 
