@@ -132,9 +132,7 @@ let liste_B_ligue1 = {
     },
 }
 
-function scoreBut(){  
-    return Math.floor((Math.random() * 6)); 
-}
+function scoreBut(){ return Math.floor((Math.random() * 6)) }
 
 function operationPronostic(num){ return num * 2 }
 
@@ -169,23 +167,14 @@ function playerFootPronostix(){
     document.body.insertBefore(curentContentDiv, curentTagDiv)
     tagNewDiv.appendChild(curentContentDiv)
     const scripttor = document.getElementsByTagName("script")[0]
-    tagNewDiv.appendChild(scripttor)
+    tagNewDiv.appendChild(scripttor);
 
         if(numberPlayer <= 10){
-
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
-
-                let arr0 = Object.entries(liste_A_ligue1);
-                let arr1 = Object.entries(liste_B_ligue1);
-                
-                let tabs0 = arr0[autoPlayerFoot(arr0.length)];
-                let tabs1 = arr1[autoPlayerFoot(arr1.length)];
-                
-                let myImage0 = new Image(80);
-                let myImage1 = new Image(80);
-
-                    myImage0.src = tabs0[1].logo;
-                    myImage1.src = tabs1[1].logo;
+                let arr0 = Object.entries(liste_A_ligue1), arr1 = Object.entries(liste_B_ligue1);
+                let tabs0 = arr0[autoPlayerFoot(arr0.length)], tabs1 = arr1[autoPlayerFoot(arr1.length)];
+                let myImage0 = new Image(80), myImage1 = new Image(80); 
+                myImage0.src = tabs0[1].logo; myImage1.src = tabs1[1].logo;
              
                 const curentDiv = document.getElementById("div");
                 const newDiv = document.createElement("div");
@@ -195,6 +184,8 @@ function playerFootPronostix(){
                 const result_true = document.createElement('div');
                 const result_false = document.createElement('div');
                 const result_ERROR = document.createElement('div');
+                const loader_pronostix = document.createElement('div');
+                const loaderz = document.createElement('div');
 
                 newDiv.appendChild(myImage0).classList.add("logo-pronostix");
                 newDiv.appendChild(myImage1).classList.add("logo-pronostix");
@@ -214,9 +205,7 @@ function playerFootPronostix(){
                 contentchild.appendChild(newDiv); 
                 const cell_pronostix = document.querySelectorAll(".cell-pronostix");
 
-                const tabs_0 = [cell_pronostix[i].childNodes[0]];
-                const tabs_1 = [cell_pronostix[i].childNodes[1]];
-
+                const tabs_0 = [cell_pronostix[i].childNodes[0]], tabs_1 = [cell_pronostix[i].childNodes[1]];
                 const tableau = tabs_0.concat(tabs_1);
 
                 for(let j = 0; j < tableau.length; j = j + 1){
@@ -242,7 +231,8 @@ function playerFootPronostix(){
 
                     const listDivName = document.createElement('div');
                     document.body.insertBefore(listDivName, curentDiv).classList.add("name-player-pronostix");
-                    listDivImg.appendChild(listDivName); const tab_name = [tabs0[1].name, tabs1[1].name];
+                    listDivImg.appendChild(listDivName); 
+                    const tab_name = [tabs0[1].name, tabs1[1].name];
                     listDivImg.lastChild.innerHTML = "<p>" + tab_name[j] + "</p>";
                     newScoreList.innerHTML = "<input type='text' name='score' class='input-pronostix' placeholder='0' maxlength='1'>"; } 
                                         
@@ -252,68 +242,89 @@ function playerFootPronostix(){
                         document.body.insertBefore(divNewMiddle_3, curentDiv).classList.add("content-btn-pronostix");
                         middleContent.appendChild(divNewMiddle_3);
                         document.body.insertBefore(btn, curentDiv).classList.add("btn-pronostix")
-                        divNewMiddle_3.appendChild(btn); btn.appendChild(t);
+                        divNewMiddle_3.appendChild(btn); 
+                        btn.appendChild(t);
+                        const timePronostix = 100;
                         const buttonPronostix = document.querySelectorAll('.btn-pronostix');
-                        buttonPronostix[i].style.display = "block"; const tab_but = [tabs0[1].but, tabs1[1].but]; 
+                        buttonPronostix[i].style.display = "block"; 
+                        const tab_but = [tabs0[1].but, tabs1[1].but]; 
                         console.log(tab_but);
-
-                            function loadingResultatPronostix(){ console.log("Chargement de la page...") }
+                        const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
+                        const indexScore = [array_but[0].childNodes[0], array_but[1].childNodes[0]];
+                        const div_result_true = document.querySelectorAll(".result-true");   
+                        const div_result_false = document.querySelectorAll(".result-false");  
    
-                            function updatatedScored(){  
-                                const array_but = cell_pronostix[i].childNodes[1].childNodes[1].childNodes;
-                                const indexScore = [array_but[0].childNodes[0], array_but[1].childNodes[0]];
-                                const div_result_true = document.querySelectorAll(".result-true");   
-                                const div_result_false = document.querySelectorAll(".result-false");   
-
+                            function updatatedScored(){   
                                 console.log("--------- [Resultat en cours] ---------"); 
-
                                 function awaitExecution(){
                                     console.log("--------- [Affichage du resultat] ---------");
-                                    console.log(tab_but);
+                                    console.log(tab_but); 
+                                    loader_pronostix.classList.add("hidden")
                                     console.log(parseInt(indexScore[0].value) === parseInt(tab_but[0]), parseInt(indexScore[1].value) === parseInt(tab_but[1]))
                                         if(((parseInt(indexScore[0].value) === NaN) || (parseInt(indexScore[1].value) !== NaN)) && ((parseInt(indexScore[1].value) !== NaN) || (parseInt(indexScore[1].value) === NaN))){
                                             if((parseInt(indexScore[0].value) === tab_but[0]) && ((parseInt(indexScore[1].value) === tab_but[1]))){
                                                 console.log("Bonne réponse");
                                                 div_result_true[i].style.display = "block"; 
-                                                div_result_true[i].textContent = "Bonne réponse";
+                                                div_result_true[i].textContent = "Bonne réponse";     
                                                 newDiv_counter.innerHTML = "<p>" + ((counte_play += 100) + " " + "€") + "</p>";
+                                                
                                             } else {
-                                                    console.log("Mauvaise réponse"); 
-                                                    div_result_false[i].style.display = "block"; 
-                                                    div_result_false[i].textContent = "Mauvaise réponse";
+                                                console.log("Mauvaise réponse"); 
+                                                div_result_false[i].style.display = "block"; 
+                                                div_result_false[i].textContent = "Mauvaise réponse";
                                                 if(counte_play > 0){
                                                     newDiv_counter.innerHTML = "<p>" + ((counte_play -= 100) + " " + "€") + "</p>";
                                                 }
                                             } 
                                         }
                                     } 
-                                    setTimeout(awaitExecution, 3000); 
-                                }
+                                setTimeout(awaitExecution, 3000); 
+                            }
 
                             function pushAnim(){
                                 (counter+=20);
                                 contentchild.style.transform = "translateY("+ Number(-(counter+=newDiv.clientHeight)) +"px)";
                             }
 
+                            function loadingResultatPronostix(){ 
+                                function displayOff(){
+                                    if((div_result_false[i].className == "result-false") || (div_result_true[i].className == "result-true")){
+                                        document.body.insertBefore(loader_pronostix, curentDiv).classList.add("content-loader")
+                                        tagNewDiv.appendChild(loader_pronostix)
+                                        loader_pronostix.appendChild(loaderz)
+                                        loaderz.classList.add("loader");
+                                        tagNewDiv.appendChild(curentContentDiv);
+                                        tagNewDiv.appendChild(scripttor);
+                                        console.log("Chargement de la page...");
+                                    }
+                                }
+                                setTimeout(displayOff, timePronostix); 
+                                displayOn()
+                            }
+
                             function resultat(){
                                 pushAnim()   
                                 updatatedScored()
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                    loadingResultatPronostix()
-                                    content_atome.style.display = "none";
-                                    shadow_atome.style.display = "none";
-                                    let pushContentcell = 150;
-                                    console.log(curentContentDiv.style.overflow = "visible")
-                                    console.log(curentContentDiv.style.transform = "translateY("+ ((cell_pronostix[i].clientHeight * operationPronostic(numberPlayer)) + newDiv_counter.clientHeight + (pushContentcell + (operationPronostic(numberPlayer) * 25) ) )  +"px)");
-                                    console.log("--------- [Fin du match] ---------")
-                                    console.log("button try again")
-                                    const btnRestart = document.createElement("BUTTON");
-                                    const t_restart = document.createTextNode("Recommencer");
-                                    btnRestart.appendChild(t_restart);
-                                    document.body.insertBefore(btnRestart, curentDiv).classList.add("btn-pronostix-restart")
-                                    curentContentDiv.appendChild(btnRestart)
-                                    btnRestart.addEventListener("click", locationreload, true)
+                                    setTimeout(loadingResultatPronostix, timePronostix);    
                                 }
+                            }
+
+                            function displayOn(){
+                                content_atome.style.display = "none";
+                                shadow_atome.style.display = "none";
+                                let pushContentcell = 150;
+                                curentContentDiv.style.overflow = "visible"
+                                curentContentDiv.style.transform = "translateY(" 
+                                + ((cell_pronostix[i].clientHeight * operationPronostic(numberPlayer)) 
+                                + newDiv_counter.clientHeight + (pushContentcell + (operationPronostic(numberPlayer) * 25) ) )  +"px)";
+                                console.log("--------- [Fin du match] ---------");
+                                const btnRestart = document.createElement("BUTTON");
+                                const t_restart = document.createTextNode("Recommencer");
+                                btnRestart.appendChild(t_restart);
+                                document.body.insertBefore(btnRestart, curentDiv).classList.add("btn-pronostix-restart")
+                                curentContentDiv.appendChild(btnRestart);
+                                btnRestart.addEventListener("click", locationreload, true)
                             }
 
                             function btnResult(){ resultat() }  
@@ -330,7 +341,6 @@ function playerFootPronostix(){
                 
                 playerFootPronostix()
 
-            function locationreload() { location.reload() }
-
-
-
+            function locationreload() { 
+                location.reload() 
+            }
