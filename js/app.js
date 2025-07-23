@@ -132,7 +132,7 @@ let liste_B_ligue1 = {
     },
 }
 
-function scoreBut(){ return Math.floor((Math.random() * 6)) }
+function scoreBut(){ return Math.floor((Math.random() * 4)) }
 
 function operationPronostic(num){ return num * 2 }
 
@@ -147,9 +147,15 @@ function playerFootPronostix(){
     const shadow_atome = document.createElement('div');
     const atome_red = document.createElement('div');
     const atome_blue = document.createElement('div');
+    const content_switch = document.createElement('div');
+    const switch_spin = document.createElement('input')
+    switch_spin.type = "checkbox";
+    switch_spin.name = "checkbox_pronostix";
+    const switch_label = document.createElement('label')
+    const slider_pronostix = document.createElement('div');
 
     let counter = 0;
-    let counte_play = 0; 
+    let counte_play = 0;
 
     const sp1 = document.createElement('div')
     const tagNewDiv = document.getElementsByTagName('body')[0];
@@ -163,6 +169,17 @@ function playerFootPronostix(){
     newDiv_counter.classList.add("counter_div")
     newDiv_counter.innerHTML = ("<p>" + (counte_play += counte_play) + " " + "€" + "</p>")
     parentCounter.appendChild(newDiv_counter)
+    document.body.insertBefore(content_switch, curentTagDiv)
+
+    content_switch.classList.add("content-switch")
+    switch_label.classList.add("theme-switch")
+    switch_label.appendChild(switch_spin)
+    content_switch.appendChild(switch_label)
+    content_switch.appendChild(slider_pronostix)
+    switch_label.appendChild(slider_pronostix)
+    slider_pronostix.classList.add("switch_slide")
+
+    switch_spin.classList.add("checkbox_slide")
     document.body.insertBefore(sp1, curentTagDiv)
     document.body.insertBefore(curentContentDiv, curentTagDiv)
     tagNewDiv.appendChild(curentContentDiv)
@@ -306,7 +323,7 @@ function playerFootPronostix(){
                                 pushAnim()   
                                 updatatedScored()
                                 if(cell_pronostix.length >= operationPronostic(numberPlayer)){
-                                    setTimeout(loadingResultatPronostix, timePronostix);    
+                                    setTimeout(loadingResultatPronostix, timePronostix);  
                                 }
                             }
 
@@ -341,6 +358,4 @@ function playerFootPronostix(){
                 
                 playerFootPronostix()
 
-            function locationreload() { 
-                location.reload() 
-            }
+            function locationreload() { location.reload() }
