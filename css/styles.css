@@ -34,7 +34,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-    background-color: aliceblue;
+    background-color: var(--body-bg-color);
 	line-height: 1;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -63,12 +63,12 @@ table {
 :root {
     --p-color: #212121;
     --bg-color: #1c2227;
-    --card-bg-color : #171a1c;
+    --card-bg-color : #171a1cbd;
     --bg-false-color : #48292b; 
     --p-false-color : #f48caa;
     --bg-true-color: #0a2909;
     --p-true-color : #319045;
-    --bg-counter-color: #27323a;
+    --bg-counter-card-color: #27323a;
     --bg-counter-light-color : #bee1ff;
     --bg-placeholder-color: #3b3b3b;
     --p-number-card-color: #f7f7f7;
@@ -78,13 +78,44 @@ table {
     --p-true-light-color : #3b9a4e;
     --bg-false-light-color : #ffd6d6;
     --p-false-light-color : #9a3b5b;
+    --body-bg-color : aliceblue;
+    --input-p-color : #212121;
 }
 
-
-[data-theme=dark]{
-    --bg-color: #1c2227;
-    --card-bg-color : #171a1c;
+:root[data-theme="light"] {
     --p-color: #212121;
+    --body-bg-color :aliceblue;
+    --text-color:#000000; 
+    --card-bg-color : #ffffff87;
+    --shadow-color : #f0f8ff;
+    --bg-counter-color: #212121;
+    --bg-counter-card-color: #bee1ff;
+    --bg-placeholder-color:#fff;
+    --p-placeholder-color : #b2bec3; 
+    --input-p-color:#212121;
+    --bg-false-light-color: #ffd6d6;
+    --p-false-light-color: #9a3b5b;
+    --bg-true-light-color : #daffd6;
+    --p-true-light-color : #3b9a4e;
+    /* etc */
+} 
+
+:root[data-theme="dark"] {
+    --p-color: #f7f7f7;
+    --body-bg-color : #1c2227;
+    --text-color: #ffffff;
+    --card-bg-color : #171a1cbd;
+    --shadow-color : #1c2227;
+    --bg-counter-color: #273035; 
+    --bg-counter-light-color : red;
+    --bg-placeholder-color:#3b3b3b;
+    --p-placeholder-color : #b2bec3; 
+    --input-p-color: #f7f7f7;
+    --bg-false-light-color: #48292b;
+    --p-false-light-color: #f48caa;
+    --bg-true-light-color : #0a2909;
+    --p-true-light-color : #319045;
+    /* etc */
 }
                                     
 /* /////////////////////////////////////////////////////////// */
@@ -97,7 +128,7 @@ table {
     width: 100%; }
 
 .counter_div {
-    background-color: #212121;
+    background-color: var(--bg-counter-color);
     width: 130px;
     height: 40px;
     border-radius: 50px;
@@ -133,8 +164,8 @@ table {
     flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
-    backdrop-filter: blur(15px);
-    background-color: #ffffff87;
+    backdrop-filter: blur(15px); 
+    background-color: var(--card-bg-color);
     border-radius: 10px;
     align-items: center;
     margin: 20px 0;
@@ -149,7 +180,7 @@ table {
     height: 95% }
 
 .counter-card-pronostix {
-    background-color: var(--bg-counter-light-color);
+    background-color: var(--bg-counter-card-color);
     border-radius: 20px;
     color: var(--p-color);
     width: 62px;
@@ -207,6 +238,7 @@ table {
     border-radius: 10px }
 
 input[type=text], select {
+    background-color: var(--bg-placeholder-color);
     width: 100%;
     padding: 10px 0px;
     margin: 0px;
@@ -216,6 +248,8 @@ input[type=text], select {
     text-align: center;
     font-weight: 600;
     font-size: 20px; }
+
+input[type=text], select p { color:var(--input-p-color) }
 
 input[type=submit] {
   width: 100%;
@@ -233,7 +267,7 @@ input::placeholder {  color: var(--p-placeholder-color) }
 
 .shadow-atome {
     content: "";
-    box-shadow: inset 0px 0px 10px 10px #f0f8ff;
+    box-shadow: inset 0px 0px 10px 10px var(--shadow-color); 
     width: 100%;
     max-width: 1060px;
     height: 255px;
@@ -308,7 +342,7 @@ input::placeholder {  color: var(--p-placeholder-color) }
 .content-loader.hidden { display: none }
 
 .content-loader {
-    background: #f0f8ff;
+    background: var(--body-bg-color);
     height: 100%;
     width: 100%;
     position: fixed;
@@ -363,8 +397,7 @@ input::placeholder {  color: var(--p-placeholder-color) }
     border-radius: 50px;
     position: absolute;
     transition: .3s;
-    transform: translateX(3px);
-}
+    transform: translateX(3px) }
 
 input:checked + .switch_slide {
     background-color: #4bff9d;

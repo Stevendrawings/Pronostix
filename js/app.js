@@ -186,12 +186,40 @@ function playerFootPronostix(){
     const scripttor = document.getElementsByTagName("script")[0]
     tagNewDiv.appendChild(scripttor);
 
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Appliquer le thème sauvegardé au chargement
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if(currentTheme === 'dark'){
+            toggleSwitch.checked = true;
+        }
+    }
+
+    // Fonction de changement de thème
+    function switchTheme(e) {
+        const theme = e.target.checked ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+
         if(numberPlayer <= 10){
             for(let i = 0; i < operationPronostic(numberPlayer); i = i + 1){  
-                let arr0 = Object.entries(liste_A_ligue1), arr1 = Object.entries(liste_B_ligue1);
-                let tabs0 = arr0[autoPlayerFoot(arr0.length)], tabs1 = arr1[autoPlayerFoot(arr1.length)];
-                let myImage0 = new Image(80), myImage1 = new Image(80); 
-                myImage0.src = tabs0[1].logo; myImage1.src = tabs1[1].logo;
+
+                let arr0 = Object.entries(liste_A_ligue1), 
+                    arr1 = Object.entries(liste_B_ligue1);
+
+                let tabs0 = arr0[autoPlayerFoot(arr0.length)], 
+                    tabs1 = arr1[autoPlayerFoot(arr1.length)];
+
+                let myImage0 = new Image(80), 
+                    myImage1 = new Image(80); 
+
+                myImage0.src = tabs0[1].logo; 
+                myImage1.src = tabs1[1].logo;
              
                 const curentDiv = document.getElementById("div");
                 const newDiv = document.createElement("div");
